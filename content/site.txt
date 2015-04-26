@@ -16,6 +16,6 @@ Keywords: Kirby, CMS, file-based
 
 Copyright: 
 
-© play nice
+play nice
 don’t steal
-2015 to ∞
+© 2015 to ∞
