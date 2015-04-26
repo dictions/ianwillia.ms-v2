@@ -6,15 +6,17 @@ var gutil = require('gutil');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 
 if(_development) {
 	var livereload = require('gulp-livereload');
 }
 
 var paths = {
-	scripts: ['assets/scripts/**/*.js', '!assets/scripts/dist/*'],
-	styles: ['assets/styles/**/*.scss', '!assets/styles/dist/*'],
+	scripts: ['assets/scripts/**/*.js', '!assets/scripts/_dist/*'],
+	styles: ['assets/styles/**/*.scss', '!assets/styles/_dist/*'],
 	php: ['../server/site/**/*.php'],
+	content: ['../content/**/*'],
 };
 
 gulp.task('scripts', function() {
@@ -32,6 +34,7 @@ gulp.task('scripts', function() {
 
 gulp.task('stylesheets', function() {
 	var stream = gulp.src('./assets/styles/index.scss')
+	.pipe(autoprefixer())
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(gulp.dest('assets/styles/_dist'));
 
@@ -48,6 +51,7 @@ gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.styles, ['stylesheets']);
 	gulp.watch(paths.php, ['reload']);
+	gulp.watch(paths.content, ['reload']);
 	livereload.listen();
 });
 
