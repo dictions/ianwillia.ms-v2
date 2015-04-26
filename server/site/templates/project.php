@@ -17,5 +17,13 @@
 <?php endforeach ?>
 
 
+<?php 
+	$prev = $page->prev();
+	$next = $page->next();
+	if (!$prev) $prev = $pages->find('work')->children()->visible()->last();
+	if (!$next) $next = $pages->find('work')->children()->visible()->first();
+?>
+<?php snippet('project/pagination', array('prev' => $prev, 'next' => $next)) ?>
+
 <?php snippet('site/footer') ?>
 <?php snippet('site/code-footer') ?>
