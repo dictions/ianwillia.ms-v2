@@ -6,7 +6,7 @@ define('DS', DIRECTORY_SEPARATOR);
 $index = dirname(dirname(__DIR__));
 
 // load the kirby bootstrapper
-require($index . DS . 'kirby' . DS . 'bootstrap.php');
+require($index . DS. 'server' . DS . 'kirby' . DS . 'bootstrap.php');
 
 // load the panel bootstrapper
 require(__DIR__ . DS . 'app' . DS . 'bootstrap.php');

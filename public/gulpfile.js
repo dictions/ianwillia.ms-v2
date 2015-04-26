@@ -1,10 +1,11 @@
 if(process.env.NODE_ENV === undefined) process.env.NODE_ENV = 'development';
 var _development = process.env.NODE_ENV == 'development';
 
-var gulp = require('gulp'),
-	source = require('vinyl-source-stream'),
-	browserify = require('browserify'),
-	sass = require('gulp-sass');
+var gulp = require('gulp');
+var gutil = require('gutil');
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
+var sass = require('gulp-sass');
 
 if(_development) {
 	var livereload = require('gulp-livereload');
@@ -13,7 +14,7 @@ if(_development) {
 var paths = {
 	scripts: ['assets/scripts/**/*.js', '!assets/scripts/dist/*'],
 	styles: ['assets/styles/**/*.scss', '!assets/styles/dist/*'],
-	php: ['../site/**/*.php'],
+	php: ['../server/site/**/*.php'],
 };
 
 gulp.task('scripts', function() {
