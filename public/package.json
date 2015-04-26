@@ -12,5 +12,8 @@
     "gutil": "^1.6.4",
     "http-server": "^0.8.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "components-webfontloader": "^1.5.2"
   }
 }

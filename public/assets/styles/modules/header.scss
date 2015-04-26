@@ -1,0 +1,63 @@
+#global-header {
+	@include clearfix();
+	margin-top: $column;
+	position: relative;
+	text-align: center;
+
+	@media #{min-width($medium-min)} {
+		margin: (2 * $column) 0 $column;
+		text-align: left;
+	}
+
+	@media (min-width: 1370px) {
+		margin: (2 * $column) 0;
+	}
+}
+
+#global-header img {
+	display: inline-block;
+	margin-bottom: $column;
+
+	// MAGIC NUMBER
+	@media (min-width: 1370px) {
+		position: absolute;
+		left: -5rem;
+		top: 10px;
+	}
+}
+
+#global-header .nav-container {
+	@media #{min-width($medium-min)} {
+		display: flex;
+	}
+}
+
+#global-header nav {
+	margin-bottom: $column;
+
+	@media #{min-width($medium-min)} {
+		flex: 1;
+
+		ul.contact {
+			text-align: right;
+		}
+	}
+}
+
+h1.hero {
+	font-size: 1.5rem;
+	margin-bottom: $column;
+	line-height: 1.5em;
+	text-align: center;
+
+	@media #{min-width($medium-min)} {
+		margin-bottom: $column * 2;
+		font-size: 2rem;
+		line-height: 1.25em;
+		text-align: left;
+	}
+
+	@media #{min-width($large-min)} {
+		font-size: 2.6rem;
+	}
+}

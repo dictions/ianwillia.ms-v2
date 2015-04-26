@@ -1,7 +1,7 @@
 <?php snippet('site/code-header') ?>
 <?php snippet('site/header') ?>
 
-<h1><?php echo $page->headline() ?></h1>
+<h1 class="hero"><?php echo $page->headline() ?></h1>
 
 <section id="work">
 	<a href="/work/crowdnoize">Crowdnoize</a>

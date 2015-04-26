@@ -34,8 +34,8 @@ gulp.task('scripts', function() {
 
 gulp.task('stylesheets', function() {
 	var stream = gulp.src('./assets/styles/index.scss')
-	.pipe(autoprefixer())
 	.pipe(sass({errLogToConsole: true}))
+	.pipe(autoprefixer('last 2 versions'))
 	.pipe(gulp.dest('assets/styles/_dist'));
 
 	if(_development) stream = stream.pipe(livereload());

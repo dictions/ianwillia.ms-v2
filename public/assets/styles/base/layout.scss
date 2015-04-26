@@ -1,0 +1,49 @@
+/*
+ * Media utility functions
+ */
+
+@function min-width($width){
+	@return '(min-width:' + $width + ')';
+}
+
+@function max-width($width){
+	@return '(max-width:' + $width + ')';
+}
+
+// Apply a natural box layout model to all elements
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+// We use this to do clear floats
+@mixin clearfix {
+	&:before, &:after { content: " "; display: table; }
+	&:after { clear: both; }
+}
+
+.clearfix {
+	&:before, &:after { content: " "; display: table; }
+	&:after { clear: both; }
+}
+
+body,
+.row {
+	width: 100%;
+	padding: 0 ($column / 4);
+
+	@media #{min-width($medium-min)} {
+		padding: 0 $column;
+	}
+
+	@media #{min-width($large-min)} {
+		width: 1140px;
+		padding: 0;
+		margin: 0 auto;
+	}
+}
+
+.reset-row {
+	position: absolute;
+	left: 0;
+	right: 0;
+}

@@ -1,0 +1,31 @@
+html, body {
+	font-family: 'Apercu Mono', monospace;
+	font-size: 18px;
+	line-height: 2em;
+	color: $blue;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'GTS', serif;
+	font-weight: 800;
+	line-height: 1.25em;
+	-webkit-font-smoothing: initial;
+	-moz-osx-font-smoothing: initial;
+}
+
+[text-align~="left"] {
+	text-align: left;
+}
+[text-align~="right"] {
+	text-align: right;
+}
+[text-align~="center"] {
+	text-align: center;
+}

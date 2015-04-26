@@ -1,0 +1,24 @@
+#global-footer {
+	background: rgba($blue, 0.15);
+	padding: (2 * $column) 0;
+}
+
+#global-footer .nav-container {
+	@media #{min-width($medium-min)} {
+		display: flex;
+	}
+}
+
+#global-footer nav {
+	margin-bottom: $column;
+	text-align: center;
+
+	@media #{min-width($medium-min)} {
+		text-align: left;
+		flex: 1;
+
+		ul.copyright {
+			text-align: right;
+		}
+	}
+}
