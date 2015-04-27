@@ -12,7 +12,7 @@ a {
 	text-decoration: none;
 }
 
-.cta {
+@mixin cta {
 	position: relative;
 
 	&:after {
@@ -28,16 +28,35 @@ a {
 	}
 
 	&:hover:after {
-		background: $yellow;
+		background: $blue;
 	}
 
 	&:focus {
 		box-shadow: none;
 		
 		&:after {
-			background: $yellow;
+			background: $blue;
 		}
 	}
+}
+
+@mixin redirect {
+	&:after {
+		content: '→';
+		display: inline;
+		margin-left: $column / 2;
+	}
+	&:hover:after {
+		margin-left: $column;
+	}
+}
+
+.redirect {
+	@include redirect();
+}
+
+.cta {
+	@include cta();
 }
 
 // For line broken CTA's
@@ -45,14 +64,14 @@ a {
 	display: inline-block;
 
 	&:hover .cta:after {
-		background: $yellow;
+		background: $blue;
 	}
 
 	&:focus {
 		box-shadow: none;
 		
 		.cta:after {
-			background: $yellow;
+			background: $blue;
 		}
 	}
 }

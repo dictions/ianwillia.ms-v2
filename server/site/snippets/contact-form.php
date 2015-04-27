@@ -2,11 +2,13 @@
 	<input type="text" placeholder="Full Name">
 	<input type="email" placeholder="Email">
 	<fieldset>
-		<label>Project Type</label>
+		<label>Estimated Timeline</label>
 		<select>
-			<option>asdlfkj</option>
-			<option>asdlfkj</option>
-			<option>asdlfkj</option>
+			<option>1 week</option>
+			<option>1 Month</option>
+			<option>Under 6 Months</option>
+			<option>1 Year</option>
+			<option>Ongoing or Unsure</option>
 		</select>
 	</fieldset>
 	<fieldset>

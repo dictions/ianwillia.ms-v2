@@ -10,9 +10,13 @@
 	}
 }
 
-#global-header img {
+#global-header .logo {
 	display: inline-block;
 	margin-bottom: $column;
+
+	&:focus {
+		box-shadow: none;
+	}
 
 	// MAGIC NUMBER
 	@media (min-width: 1370px) {

@@ -1,6 +1,6 @@
 #about {
 	@include clearfix();
-	margin: $column 0;
+	padding: $column 0;
 	position: relative;
 
 	@media #{min-width($medium-min)} {
@@ -15,7 +15,7 @@
 
 	@media #{min-width($medium-min)} {
 		display: initial;
-		top: 6px;
+		top: 42px;
 		left: -728px;
 	}
 	
@@ -45,6 +45,10 @@
 			margin-right: $column
 		}
 		
+	}
+
+	a {
+		@include cta();
 	}
 }
 

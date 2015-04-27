@@ -2,10 +2,12 @@
 	<div class="nav-container row">
 		<nav>
 			<ul>
-				<li><a href="">angel.co</a></li>
-				<li><a href="">dribbble</a></li>
-				<li><a href="">twitter</a></li>
-				<li><a href="">instagram</a></li>
+				<?php $links = yaml($site->links()) ?>
+				<?php foreach($links as $key => $url):?>
+				<li>
+					<a class="redirect" href="<?php echo $url ?>" target="_blank" title="<?php echo $key ?>"><?php echo $key ?></a>
+				</li>
+				<?php endforeach ?>
 			</ul>
 		</nav>
 		<nav>
