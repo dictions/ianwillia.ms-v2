@@ -1,0 +1,11 @@
+*:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px rgba($blue, 0.15);
+}
+
+*::selection {
+  background: $yellow;
+}
+*::-moz-selection {
+  background: $yellow;
+}

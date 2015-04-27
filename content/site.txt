@@ -1,16 +1,4 @@
-Title: Kirby Starterkit
-
-----
-
-Author: Bastian Allgeier GmbH
-
-----
-
-Description: This is Kirby's Starterkit.
-
-----
-
-Keywords: Kirby, CMS, file-based
+Title: Ian Alexander Williams | Web Designer and Developer
 
 ----
 

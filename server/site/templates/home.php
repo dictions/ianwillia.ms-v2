@@ -12,7 +12,8 @@
 
 
 <section id="about">
-	<p><?php echo $page->bio() ?></p>
+	<img src="/assets/images/about-bg.svg">
+	<?php echo $page->bio()->kirbytext()?>
 	<ul>
 		<?php foreach(str::split($page->capabilities()) as $c): ?>
 		<li><?php echo $c ?></li>

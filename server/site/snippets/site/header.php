@@ -3,7 +3,7 @@
 	<div class="nav-container">
 		<nav>
 			<ul>
-				<li><a href="/#about">ian alexander williams</a></li>
+				<li><a href="/#about">ian alexander williams →</a></li>
 				<li><a href="tel:540-521-1086">540.521.1086</a></li>
 				<li><a href="mailto:yell@ianwillia.ms">yell@ianwillia.ms</a></li>
 			</ul>

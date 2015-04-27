@@ -30,6 +30,14 @@ a {
 	&:hover:after {
 		background: $yellow;
 	}
+
+	&:focus {
+		box-shadow: none;
+		
+		&:after {
+			background: $yellow;
+		}
+	}
 }
 
 // For line broken CTA's
@@ -38,6 +46,14 @@ a {
 
 	&:hover .cta:after {
 		background: $yellow;
+	}
+
+	&:focus {
+		box-shadow: none;
+		
+		.cta:after {
+			background: $yellow;
+		}
 	}
 }
 
@@ -48,6 +64,24 @@ h1, h2, h3, h4, h5, h6 {
 	-webkit-font-smoothing: initial;
 	-moz-osx-font-smoothing: initial;
 }
+
+@mixin intro {
+	font-family: 'GTS';
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.78em;
+	-webkit-font-smoothing: initial;
+	-moz-osx-font-smoothing: initial;
+
+	@media #{min-width($large-min)} {
+		font-size: 1.44rem;
+	}
+}
+
+.intro {
+	@include intro();
+}
+
 
 [text-align~="left"] {
 	text-align: left;
