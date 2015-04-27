@@ -10,9 +10,9 @@
 		</nav>
 		<nav>
 			<ul class="contact">
-				<li><a href="/#contact">
-					april 2015 <br>
-					available for contract
+				<li><a href="/#contact" class="cta-group">
+					<span class="cta">april 2015</span><br>
+					<span class="cta">available for contract</span>
 				</a></li>
 			</ul>
 		</nav>

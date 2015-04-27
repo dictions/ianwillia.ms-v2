@@ -8,10 +8,6 @@
 		margin: (2 * $column) 0 $column;
 		text-align: left;
 	}
-
-	@media (min-width: 1370px) {
-		margin: (2 * $column) 0;
-	}
 }
 
 #global-header img {
