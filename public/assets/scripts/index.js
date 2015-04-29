@@ -1,10 +1,11 @@
+var FastClick = require('./util/fastclick');
 var WebFonts = require('./util/fonts');
 window.Form = require('./modules/form');
 
 window.app = {
 	init: function () {
-		// Start loading fonts from Google
 		WebFonts();
+		FastClick();
 		if (window.initializeForm) Form.init('#contact');
 	}
 };

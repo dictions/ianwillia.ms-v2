@@ -27,6 +27,8 @@ form button {
 	color: white;
 	background: $blue;
 	cursor: pointer;
+	display: block;
+	margin: 0;
 }
 
 form fieldset {
@@ -47,6 +49,7 @@ form fieldset {
 fieldset input,
 fieldset textarea,
 fieldset select {
+	margin: 0;
 	border: none;
 	width: 100%;
 	padding: $column / 2;
