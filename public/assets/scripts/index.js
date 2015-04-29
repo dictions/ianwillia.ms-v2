@@ -5,7 +5,7 @@ window.Form = require('./modules/form');
 window.app = {
 	init: function () {
 		WebFonts();
-		FastClick();
+		if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
 		if (window.initializeForm) Form.init('#contact');
 	}
 };

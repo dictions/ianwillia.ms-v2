@@ -2,11 +2,11 @@
 	<div>
 		<fieldset>
 			<input class="input" type="text" placeholder="Full Name*" validate-required>
-			<span class="error" data-required="Please enter your full name*"></span>
+			<span class="error" data-required="Full Name is required*"></span>
 		</fieldset>
 		<fieldset>
 			<input class="input" type="email" placeholder="Email*" validate-required validate-email>
-			<span class="error" data-required="Please enter a valid email*" data-email="Email is not valid*"></span>
+			<span class="error" data-required="Email is required*" data-email="Invalid email*"></span>
 		</fieldset>
 	</div>
 	<div>
