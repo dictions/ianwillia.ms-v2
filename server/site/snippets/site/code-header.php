@@ -7,5 +7,8 @@
 	<?php if (c::get('environment') == 'development'): ?>
 	<script src="http://localhost:35729/livereload.js"></script>
 	<?php endif ?>
+	<script type="text/javascript">
+		var initializeForm = false;
+	</script>
 </head>
 <body>

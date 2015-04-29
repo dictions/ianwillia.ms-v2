@@ -1,10 +1,14 @@
-html, body {
+@mixin body-copy {
 	font-family: 'Apercu Mono', monospace;
 	font-size: 18px;
 	line-height: 2em;
 	color: $blue;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+	@include body-copy();
 }
 
 a {
@@ -44,10 +48,10 @@ a {
 	&:after {
 		content: '→';
 		display: inline;
-		margin-left: $column / 2;
+		padding-left: $column / 2;
 	}
 	&:hover:after {
-		margin-left: $column;
+		padding-left: $column;
 	}
 }
 
