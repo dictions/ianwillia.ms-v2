@@ -51,12 +51,14 @@ fieldset textarea,
 fieldset select {
 	margin: 0;
 	border: none;
+	display: block;
 	width: 100%;
 	padding: $column / 2;
 	@include body-copy();
 
 	&:focus {
 		box-shadow: none;
+		background: $blue-light;
 	}
 
 	&::-webkit-input-placeholder {
@@ -108,4 +110,24 @@ fieldset label {
 
 fieldset textarea {
 	resize: none;
+}
+
+fieldset .error {
+	cursor: pointer;
+	padding: $column / 2;
+	@include body-copy();
+	background: $yellow;
+	display: block;
+	position: absolute;
+	left:   0;
+	right:  0;
+	top:    0;
+	bottom: 0;
+	pointer-events: none;
+	opacity: 0;
+
+	&.show {
+		pointer-events: initial;
+		opacity: 1;
+	}
 }

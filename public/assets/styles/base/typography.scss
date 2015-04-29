@@ -32,14 +32,14 @@ a {
 	}
 
 	&:hover:after {
-		background: $blue;
+		background: rgba($blue, 0.8);
 	}
 
 	&:focus {
 		box-shadow: none;
 		
 		&:after {
-			background: $blue;
+			background: rgba($blue, 0.8);
 		}
 	}
 }
@@ -68,14 +68,14 @@ a {
 	display: inline-block;
 
 	&:hover .cta:after {
-		background: $blue;
+		background: rgba($blue, 0.8);
 	}
 
 	&:focus {
 		box-shadow: none;
 		
 		.cta:after {
-			background: $blue;
+			background: rgba($blue, 0.8);
 		}
 	}
 }

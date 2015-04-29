@@ -1,10 +1,12 @@
 <form id="contact" action="/assets/actions/contact.php">
 	<div>
 		<fieldset>
-			<input type="text" placeholder="Full Name*" validate-required>
+			<input class="input" type="text" placeholder="Full Name*" validate-required>
+			<span class="error" data-required="Please enter your full name*"></span>
 		</fieldset>
 		<fieldset>
-			<input type="email" placeholder="Email*" validate-required validate-email>
+			<input class="input" type="email" placeholder="Email*" validate-required validate-email>
+			<span class="error" data-required="Please enter a valid email*" data-email="Email is not valid*"></span>
 		</fieldset>
 	</div>
 	<div>
@@ -31,7 +33,8 @@
 	</div>
 	<div>
 		<fieldset>
-			<textarea placeholder="What are you working on?*" validate-required></textarea>
+			<textarea class="input" placeholder="What are you working on?*" validate-required></textarea>
+			<span class="error" data-required="What are you working on?*"></span>
 		</fieldset>
 	</div>
 	<button class="submit">Submit Project Inquiry</button>
