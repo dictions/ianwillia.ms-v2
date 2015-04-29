@@ -4,6 +4,7 @@ var initialize = function(formSelector) {
 	this.$form = $(formSelector);
 	this.$required = this.$form.find('[validate-required]');
 	this.$email = this.$form.find('[validate-email]');
+	this.$textarea = this.$form.find('textarea');
 	this.$submit = this.$form.find('button.submit');
 	this.$error = this.$form.find('.error');
 	listen.call(this);
@@ -22,6 +23,11 @@ var listen = function() {
 	});
 	this.$required.on('focus', function(e) {
 		$(this).siblings('.error').removeClass('show');
+	});
+	this.$textarea.on('input propertychange keyup change', function() {
+		var el = $(this).dom[0];
+		el.style.height = 0;
+		el.style.height = el.scrollHeight + "px";
 	});
 	this.$submit.on('click', function(e) {
 		validateSubmit.call(this, e, self);
