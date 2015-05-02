@@ -1,6 +1,7 @@
 form {
 	width: 100%;
 	border: 3px solid $blue;
+	position: relative;
 }
 
 form > div {
@@ -132,5 +133,32 @@ fieldset .error {
 	&.show {
 		pointer-events: initial;
 		opacity: 1;
+	}
+}
+
+
+form .alert {
+	padding: $column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left:   0;
+	right:  0;
+	top:    0;
+	bottom: 0;
+	background: $blue;
+	color: white;
+	text-align: center;
+	opacity: 0;
+	pointer-events: none;
+
+	span {
+		flex: 1;
+	}
+
+	&.show {
+		opacity: 1;
+		pointer-events: auto;
 	}
 }

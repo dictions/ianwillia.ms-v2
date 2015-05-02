@@ -37,6 +37,9 @@
 			<span class="error" data-required="What are you working on?*"></span>
 		</fieldset>
 	</div>
+	<p class="alert">
+		<span></span>
+	</p>
 	<button class="submit">Submit Project Inquiry</button>
 </form>
 <script type="text/javascript">

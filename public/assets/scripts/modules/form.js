@@ -1,4 +1,5 @@
 var $ = require('../util/sprint');
+var request = require('superagent');
 
 var initialize = function(formSelector) {
 	this.$form = $(formSelector);
@@ -7,6 +8,7 @@ var initialize = function(formSelector) {
 	this.$textarea = this.$form.find('textarea');
 	this.$submit = this.$form.find('button.submit');
 	this.$error = this.$form.find('.error');
+	this.$alert = this.$form.find('.alert');
 	listen.call(this);
 };
 
@@ -39,6 +41,9 @@ var listen = function() {
 		$(this).removeClass('show');
 		$(this).siblings('.input').first().dom[0].select();
 	});
+	this.$alert.on('click', function(e) {
+		$(this).removeClass('show');
+	});
 };
 
 var validateEmail = function(e, form) {
@@ -53,6 +58,8 @@ var validateEmail = function(e, form) {
     if(!re.test(val)) {
     	showError.call($error, $error.attr('data-email'))	
     }
+
+    return re.test(val);
 };
 
 var validateRequired = function(e, form) {
@@ -60,17 +67,60 @@ var validateRequired = function(e, form) {
 	var $error = $input.siblings('.error');
 	var val = $input.val();
 	if (val.length == 0) showError.call($error, $error.attr('data-required'))
+	return (val.length > 0)
+};
+
+var validateAll = function() {
+	var valid = true;
+	this.$email.each(function($e) {
+		if (!validateEmail.call(this)) valid = false;
+	});
+	this.$required.each(function($r) {
+		if (!validateRequired.call(this)) valid = false;
+	});
+	return valid;
+};
+
+var showError = function(error) {
+	this.addClass('show').html(error);
 };
 
 var validateSubmit = function(e, form) {
 	e.preventDefault();
-	console.log(this, e, form);
+
+	if (validateAll.call(form)) {
+		var $form = $(form);
+		console.log($('[name="fullname"]').val());
+		request.post('/form')
+		.send({
+			"fullname": $('[name="fullname"]').val(),
+			"email": $('[name="email"]').val(),
+			"timeline": $('[name="timeline"]').val(),
+			"budget": $('[name="budget"]').val(),
+			"message": $('[name="message"]').val()
+		})
+		.end(function(err, res) {
+			res.body.success ? showFormSuccess.call(form) : showFormError.call(form)
+		});
+	}
+
 	return false;
 };
 
-var showError = function(error) {
-	console.log(error);
-	this.addClass('show').html(error);
+var clearForm = function() {
+	this.$form.dom[0].reset();
 }
+
+var showFormSuccess = function() {
+	this.$alert.find('span').html('Thanks for dropping a line :)');
+	this.$alert.addClass('show');
+	clearForm.call(this);
+};
+
+var showFormError = function() {
+	this.$alert.find('span').html('There has been an error :( \n Try refreshing your browser. Also, you can always email me at <a style="color:white;" href="mailto:me@ianwillia.ms">me@ianwillia.ms</a>');
+	this.$alert.addClass('show');
+	clearForm.call(this);
+};
 
 module.exports.init = initialize;
