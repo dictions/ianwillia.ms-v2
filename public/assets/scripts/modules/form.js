@@ -14,18 +14,6 @@ var initialize = function(formSelector) {
 
 var listen = function() {
 	var self = this;
-	this.$email.on('blur', function(e) {
-		validateEmail.call(this, e, self);
-	});
-	this.$email.on('focus', function(e) {
-		$(this).siblings('.error').removeClass('show');
-	});
-	this.$required.on('blur', function(e) {
-		validateRequired.call(this, e, self);
-	});
-	this.$required.on('focus', function(e) {
-		$(this).siblings('.error').removeClass('show');
-	});
 	this.$textarea.on('input propertychange keyup change', function() {
 		var el = $(this).dom[0];
 		el.style.height = 0;
@@ -85,6 +73,21 @@ var showError = function(error) {
 	this.addClass('show').html(error);
 };
 
+var listenOnBlur = function() {
+	this.$email.on('blur', function(e) {
+		validateEmail.call(this, e, self);
+	});
+	this.$email.on('focus', function(e) {
+		$(this).siblings('.error').removeClass('show');
+	});
+	this.$required.on('blur', function(e) {
+		validateRequired.call(this, e, self);
+	});
+	this.$required.on('focus', function(e) {
+		$(this).siblings('.error').removeClass('show');
+	});
+}
+
 var validateSubmit = function(e, form) {
 	e.preventDefault();
 
@@ -102,6 +105,9 @@ var validateSubmit = function(e, form) {
 		.end(function(err, res) {
 			res.body.success ? showFormSuccess.call(form) : showFormError.call(form)
 		});
+	} else {
+		// Only listen on blur when you've fucked up the form
+		listenOnBlur.call(form);
 	}
 
 	return false;

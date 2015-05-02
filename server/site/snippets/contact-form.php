@@ -17,7 +17,7 @@
 				<option>1 Month</option>
 				<option>6 Months</option>
 				<option>1 Year</option>
-				<option>Ongoing or Not Sure</option>
+				<option>Ongoing or not sure</option>
 			</select>
 		</fieldset>
 		<fieldset class="select">
@@ -27,7 +27,8 @@
 				<option>$5,000-$10,000</option>
 				<option>$10,000-$25,000</option>
 				<option>$25,000-$50,000</option>
-				<option>Not Sure</option>
+				<option>$50,000+</option>
+				<option>Not sure</option>
 			</select>
 		</fieldset>
 	</div>

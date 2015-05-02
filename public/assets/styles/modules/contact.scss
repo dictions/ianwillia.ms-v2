@@ -79,6 +79,17 @@ fieldset select {
 	&:-ms-input-placeholder {  
 		color: rgba($blue, 0.5);  
 	}
+
+	// Stupid Ass autocomplete hack
+	&:-webkit-autofill {
+		color: $blue !important;
+		-webkit-text-fill-color: $blue;
+    	-webkit-box-shadow: 0 0 0 1000px white inset;
+
+    	&:focus {
+    		-webkit-box-shadow: 0 0 0 1000px $blue-light inset;
+    	}
+    }
 }
 
 fieldset select {
