@@ -1,18 +1,18 @@
-<form id="contact" action="/assets/actions/contact.php">
+<form id="contact" action="/form" method="post">
 	<div>
 		<fieldset>
-			<input class="input" type="text" placeholder="Full Name*" validate-required>
+			<input class="input" name="fullname" type="text" placeholder="Full Name*" validate-required>
 			<span class="error" data-required="Full Name is required*"></span>
 		</fieldset>
 		<fieldset>
-			<input class="input" type="email" placeholder="Email*" validate-required validate-email>
+			<input name="email" class="input" type="email" placeholder="Email*" validate-required validate-email>
 			<span class="error" data-required="Email is required*" data-email="Invalid email*"></span>
 		</fieldset>
 	</div>
 	<div>
 		<fieldset class="select">
 			<label>Estimated Timeline</label>
-			<select>
+			<select name="timeline">
 				<option>1 week</option>
 				<option>1 Month</option>
 				<option>6 Months</option>
@@ -22,7 +22,7 @@
 		</fieldset>
 		<fieldset class="select">
 			<label>Budget</label>
-			<select>
+			<select name="budget">
 				<option>$1,000-$5,000</option>
 				<option>$5,000-$10,000</option>
 				<option>$10,000-$25,000</option>
@@ -33,7 +33,7 @@
 	</div>
 	<div>
 		<fieldset>
-			<textarea class="input" placeholder="What are you working on?*" validate-required></textarea>
+			<textarea name="message" class="input" placeholder="What are you working on?*" validate-required></textarea>
 			<span class="error" data-required="What are you working on?*"></span>
 		</fieldset>
 	</div>
