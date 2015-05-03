@@ -6,7 +6,7 @@ window.app = {
 	init: function () {
 		WebFonts();
 		if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
-		if (window.initializeForm) Form.init('#contact');
+		if (GLOBAL_MODULES.form) Form.init('#contact');
 	}
 };
 

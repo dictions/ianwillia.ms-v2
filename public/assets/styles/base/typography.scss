@@ -1,6 +1,7 @@
 @mixin body-copy {
 	font-family: 'Apercu Mono', monospace;
 	font-size: 18px;
+	font-weight: 400;
 	line-height: 2em;
 	color: $blue;
 	-webkit-font-smoothing: antialiased;

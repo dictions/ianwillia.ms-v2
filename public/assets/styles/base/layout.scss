@@ -26,7 +26,7 @@
 	&:after { clear: both; }
 }
 
-body,
+//body,
 .row {
 	width: 100%;
 	padding: 0 ($column / 4);
@@ -42,8 +42,8 @@ body,
 	}
 }
 
-.reset-row {
-	position: absolute;
-	left: 0;
-	right: 0;
+img {
+	width: 100%;
+	height: auto;
+	display: block;
 }

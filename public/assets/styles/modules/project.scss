@@ -1,0 +1,117 @@
+.slideshow {
+	z-index: -1000;
+	position: relative;
+
+	@media (min-width: $medium-min) {
+		margin-bottom: -2 * $column;
+	}
+
+	@media (min-width: $large-min) {
+		margin-bottom: -4 * $column;
+	}
+}
+
+.project-content {
+	@media (min-width: $large-min) {
+		display: flex;
+	}
+}
+
+.project-content main {
+	margin-bottom: $column * 2;
+
+
+
+	@media (min-width: $large-min) {
+		margin-bottom: 0;
+		flex: 0 0 60%;
+	}
+}
+
+.project-content aside {
+	margin-bottom: $column * 2;
+
+	@media (min-width: $large-min) {
+		margin-left: 10%;
+		flex: 0 0 30%;
+		margin-bottom: 0;
+	}
+}
+
+.project-content main p {
+	@include intro();
+	margin-bottom: 1.78em;
+	max-width: 36rem;
+
+	// dropcap
+	&:first-of-type:first-letter {
+		float: left;
+		font-weight: 800;
+		font-size: 80px;
+		line-height: 1em;
+		margin-right: $column / 2;
+
+		@media (min-width: $large-min) {
+			font-size: 88px;
+			line-height: 92px;
+		}
+	}
+
+	@media (min-width: $large-min) {
+		max-width: initial;
+	}
+}
+
+.project-content aside section {
+	margin-bottom: 2rem;
+}
+
+.project-content h1,
+.project-content h2 {
+	@include body-copy();
+	padding-bottom: 1rem;
+	border-bottom: 3px solid $blue;
+	margin-bottom: 3rem;
+}
+
+.project-content h2 {
+
+	&.overview {
+		display: none;
+		@media (min-width: $large-min) {
+			display: block;
+		}
+	}
+}
+
+.project-content h3 {
+	font-family: 'Apercu', san-serif;
+	font-weight: 800;
+	font-size: 0.77rem;
+	line-height: 2.6em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+.pagination {
+	margin-top: $column * 2;
+
+	@media (min-width: $medium-min) {
+		display: flex;
+	}
+}
+
+.pagination a {
+	margin-bottom: $column;
+	display: block;
+	
+	@media (min-width: $medium-min) {
+		flex: 1;
+
+		&:last-child {
+			text-align: right;
+		}
+	}
+}

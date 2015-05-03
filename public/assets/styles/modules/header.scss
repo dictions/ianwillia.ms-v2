@@ -5,7 +5,8 @@
 	text-align: center;
 
 	@media #{min-width($medium-min)} {
-		margin: (2 * $column) 0 $column;
+		margin-top: (2 * $column);
+		margin-bottom: $column;
 		text-align: left;
 	}
 }

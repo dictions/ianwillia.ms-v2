@@ -1,4 +1,4 @@
-<footer id="global-footer" class="reset-row">
+<footer id="global-footer">
 	<div class="nav-container row">
 		<nav>
 			<ul>

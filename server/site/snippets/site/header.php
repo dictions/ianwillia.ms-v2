@@ -1,4 +1,4 @@
-<header id="global-header">
+<header id="global-header" class="row">
 	<a class="logo" href="/" title="ian alexander williams"><img src="/assets/images/logo.svg"></a>
 	<div class="nav-container">
 		<nav>

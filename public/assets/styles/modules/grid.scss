@@ -1,0 +1,20 @@
+.image-row {
+	margin-left: -$column/2;
+	margin-right: -$column/2;
+
+	@media #{min-width($medium-min)} {
+		display: flex;
+		margin-bottom: $column;
+	}
+}
+
+.image-row .image-col {
+	margin-left: $column/2;
+	margin-right: $column/2;
+	margin-bottom: $column/4;
+
+	@media #{min-width($medium-min)} {
+		flex: 1;
+		margin-bottom: 0;
+	}
+}

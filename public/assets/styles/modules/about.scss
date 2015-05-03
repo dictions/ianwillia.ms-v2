@@ -12,6 +12,7 @@
 #about > img {
 	display: none;
 	position: absolute;
+	width: initial;
 
 	@media #{min-width($medium-min)} {
 		display: initial;

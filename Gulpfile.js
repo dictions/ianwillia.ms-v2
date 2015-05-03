@@ -10,7 +10,7 @@ var paths = {
 	scripts: ['public/assets/scripts/**/*.js', '!public/assets/scripts/_dist/*'],
 	styles: ['public/assets/styles/**/*.scss', '!public/assets/styles/_dist/*'],
 	php: ['server/site/**/*.php'],
-	content: ['content/**/*'],
+	content: ['public/content/**/*'],
 };
 
 gulp.task('scripts', function() {
