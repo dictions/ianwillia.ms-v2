@@ -5,10 +5,11 @@
 	<h1 class="hero"><?php echo $page->headline() ?></h1>
 </div>
 
+<?php $work = $pages->find('work')->children()->visible() ?>
 <section id="work" class="row">
-	<a href="/work/crowdnoize">Crowdnoize</a>
-	<a href="/work/greenhouse-go">GHG</a>
-	<a href="/work/authff">Authff</a>
+	<?php foreach ($work as $study): ?>
+	<a href="<?php echo $study->url() ?>"><h2><?php echo $study->title() ?></h2></a>
+	<?php endforeach ?>
 </section>
 
 
