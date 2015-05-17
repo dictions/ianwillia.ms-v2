@@ -1,15 +1,14 @@
-// var WebFont = require('components-webfontloader');
 var loadCSS = require('./loadCSS');
 var compat = typeof(Storage) !== 'undefined';
-var loadedStyles = localStorage.getItem('base64fonts');
+var loadedStyles = localStorage.getItem('cachedStyles');
 var loaded = loadedStyles !== null;
 
 var cacheFontsToStorage = function(styles) {
-	localStorage.setItem('base64fonts', styles);
+	localStorage.setItem('cachedStyles', styles);
 }
 
 var loadFontsFromStorage = function() {
-	return localStorage.getItem('base64fonts');
+	return localStorage.getItem('cachedStyles');
 }
 
 module.exports.load = function(cb) {
@@ -18,7 +17,7 @@ module.exports.load = function(cb) {
 			loadCSS.inject(loadedStyles);
 			if (cb) cb();
 		} else {
-			loadCSS.load('/assets/fonts/fonts.css', function(styles) {
+			loadCSS.load('/assets/styles/_dist/index.css', function(styles) {
 				cacheFontsToStorage(styles);
 				loadCSS.inject(styles);
 				if (cb) cb();

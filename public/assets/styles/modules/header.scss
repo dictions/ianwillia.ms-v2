@@ -46,19 +46,27 @@
 }
 
 h1.hero {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	margin-bottom: $column;
 	line-height: 1.5em;
 	text-align: center;
 
 	@media #{min-width($medium-min)} {
 		margin-bottom: $column * 2;
-		font-size: 2rem;
+		font-size: 2.6rem;
 		line-height: 1.25em;
 		text-align: left;
 	}
 
 	@media #{min-width($large-min)} {
-		font-size: 2.6rem;
+		font-size: 3.75rem;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		
+		&::selection {
+			-webkit-text-fill-color: $yellow;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: $blue;
+		}
 	}
 }

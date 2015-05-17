@@ -4,12 +4,21 @@
 }
 
 *::selection {
-  background: $yellow;
+	background: $yellow;
 }
 *::-moz-selection {
   background: $yellow;
+  color: $green;
 }
 
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+	transition: 2s opacity ease;
+}
+
+body.js-load.js-load-finish {
+	opacity: 1;
 }
