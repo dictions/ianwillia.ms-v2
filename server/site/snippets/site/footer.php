@@ -1,5 +1,6 @@
 <footer id="global-footer">
 	<div class="nav-container row">
+		<span class="logo"><img src="/assets/images/logo.svg"></span>
 		<nav>
 			<ul>
 				<?php $links = yaml($site->links()) ?>

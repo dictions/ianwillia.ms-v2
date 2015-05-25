@@ -2,6 +2,10 @@ Title: Tapwater
 
 ----
 
+Short Name: Tapwater
+
+----
+
 Intro: Tapwater is a web app currently in development alongside Matt Reyer. It is the simplest way to keep people on the same page. After using project management solutions that clutter and fragment the mind, we're building something that functions as a central hub for a project. 
 
 Signup to get early access to beta. 

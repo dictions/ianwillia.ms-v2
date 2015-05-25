@@ -2,6 +2,10 @@ Title: Soundset Festival Website 2014
 
 ----
 
+Short Name: Soundset
+
+----
+
 Intro: Soundset Festival is a 7 years and counting hip hop showcase hosted by Rhymesayers Entertainment. The lineups span the like of Atmosphere, Earlwolf, Icecube, and Ludacris. 
 
 In 2014, Rhymesayers hired Adam Garcia of The Pressure to design the experience and Authentic F&F to deliver the finished build. In a matter of weeks, we finished a mobile first, conversion focused festival site built on top of Expression Engine. 

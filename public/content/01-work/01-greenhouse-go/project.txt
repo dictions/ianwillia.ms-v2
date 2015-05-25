@@ -2,6 +2,10 @@ Title: Greenhouse Go Carbon Planner
 
 ----
 
+Short Name: Greenhouse Go
+
+----
+
 Intro: Greenhouse Go's Carbon Planner is a web app for land planners and developers to estimate, analyze, and mitigate carbon emissions. 
 
 Authentic F&F was tasked with the job of turning Greenhouse Go's verbose carbon calculations into a friendly, eloquent web application. In 2014, I lead the interface design and frontend development of Carbon Planner from MVP to finished product. 

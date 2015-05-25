@@ -8,8 +8,14 @@
 </noscript>
 <meta charset="UTF-8">
 <style>body.js-load {opacity: 0;}</style>
+<script type="text/javascript">
+var DEVELOPMENT = false;
+</script>
 <?php if (c::get('environment') == 'development'): ?>
 <script src="http://localhost:35729/livereload.js"></script>
+<script type="text/javascript">
+DEVELOPMENT = true;
+</script>
 <?php endif ?>
 <script type="text/javascript">
 var GLOBAL_MODULES = {

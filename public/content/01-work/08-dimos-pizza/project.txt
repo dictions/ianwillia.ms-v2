@@ -2,6 +2,10 @@ Title: Dimo's Pizza Instant Ordering
 
 ----
 
+Short Name: Dimo's Pizza
+
+----
+
 Intro: Dimo's Pizza hails from Chicago and is known for their novel pies. They came to Authentic F&F to refresh their website and help scale their online ordering platform. In 2014, I helped the guys at Authentic expand online ordering for Dimo's with an instant ordering web app for mobile. 
 
 The app was designed for repeat customers to come to the Dimo's website, order their usual, and be done with the entire checkout process in seconds. We used geofencing to automatically choose the closest Dimo's location, and localStorage to backup all order information for their next visit. 

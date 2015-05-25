@@ -1,66 +1,152 @@
-#work .button.absolute { 
-	display: none;
-	position: absolute;
-	white-space: nowrap;
-	z-index: 1;
-	left: calc(100% - 4rem);
-
-	&.right {
-		left: -6rem;
-	}
-
-	.left-right {
-		left: 50%;
-	}
-
-	&.top {
-		top: 2rem;
-	}
-
-	&.neg-top {
-		top: -5.75rem;
-	}
-
-	@media #{min-width($medium-min)} {
-		display: inline-block;
-	}
-}
-
-.work-row,
-.work-col {
+.showcase-row,
+.showcase-col {
 	position: relative;
-
-	div {
-		position: relative;
-	}
-
-	img {
-		margin-top: 7.75rem;
-		margin-bottom: 2rem;
-	}
+	display: block;
 }
 
-.work-row {
-	margin-left: -$column/2;
-	margin-right: -$column/2;
+.showcase-row {
 
 	@media #{min-width($medium-min)} {
+		margin-left: -$column/2;
+		margin-right: -$column/2;
 		display: flex;
-		margin-bottom: $column;
+		margin-bottom: 5rem;
+
+		&.bottom {
+			align-items: flex-end;
+		}
+		&.top {
+			align-items: flex-start;
+		}
+
+		&.flush {
+			margin-bottom: 8rem;
+		}
 	}
 }
 
-.work-row .work-col {
-	margin-left: $column/2;
-	margin-right: $column/2;
-	margin-bottom: $column/4;
+.showcase-col {
+	margin-bottom: 2rem;
+	padding-top: $column/2;
 
 	@media #{min-width($medium-min)} {
+		padding-top: 0;
+		padding-left: $column/2;
+		padding-right: $column/2;
+		padding-bottom: $column/2;
 		flex: 1;
 		margin-bottom: 0;
 
-		&.big {
-			flex: 0 0 60%;
+		&.flush-top {
+			padding-top: $column/2;
+		}
+
+		$elements: 11;
+		@for $i from 1 to $elements {
+			&[col~="#{$i}"] {
+				flex: 0 0 percentage($i/10);
+			}
+
+			&[col~="medium-#{$i}"] {
+				@media #{min-width($medium-min)} {
+					flex: 0 0 percentage($i/10);
+				}
+			}
+
+			&[col~="large-#{$i}"] {
+				@media #{min-width($large-min)} {
+					flex: 0 0 percentage($i/10);
+				}
+			}
 		}
 	}
+}
+
+@media #{min-width($medium-min)} {
+	a.showcase-col:hover {
+		box-shadow: inset 0 0 0 3px $blue;
+		cursor: pointer;
+	}
+}
+
+.showcase-col img {
+	margin-bottom: $column/4;
+
+	@media #{min-width($medium-min)} {
+		margin-bottom: 2rem;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+[annotation] {
+	margin-bottom: 2rem;
+	display: block;
+}
+
+[annotation~="left"] {
+	@media #{min-width($medium-min)} {
+		position: absolute;
+		top: 0;
+		left: -2.95rem;
+	}
+}
+
+[annotation~="right"] {
+	@media #{min-width($medium-min)} {
+		position: absolute;
+		top: 0;
+		right: -2.95rem;
+	}
+}
+
+[annotation~="flush-top"] {
+	@media #{min-width($medium-min)} {
+		top: $column/2;
+	}
+}
+
+.spacer {
+	display: none;
+	@media #{min-width($large-min)} {
+		display: block;
+	}
+}
+
+.legend {
+
+	@media #{min-width($large-min)} {
+		margin-top: 4rem;
+	}
+}
+
+#work header {
+	margin-bottom: $column;
+	display: block;
+
+
+	@media #{min-width($medium-min)} {
+		margin-bottom: 0;
+		padding-bottom: $column * 2.5;
+	}
+
+	@media #{min-width($large-min)} {
+		margin-bottom: $column/4;
+		padding-bottom: 0;
+		display: flex;
+	}
+}
+
+#work header h2 {
+	@include body-copy();
+	padding-bottom: 1rem;
+	border-bottom: 3px solid $blue;
+	margin-bottom: 0;
+}
+
+#work .showcase-col {
+	margin-bottom: 0;
+	padding-bottom: $column / 2;
 }

@@ -2,12 +2,12 @@
 	@include clearfix();
 	margin-top: $column;
 	position: relative;
-	text-align: center;
+	//text-align: center;
 
 	@media #{min-width($medium-min)} {
 		margin-top: (2 * $column);
 		margin-bottom: $column;
-		text-align: left;
+		//text-align: left;
 	}
 }
 
@@ -46,16 +46,16 @@
 }
 
 h1.hero {
-	font-size: 2rem;
-	margin-bottom: $column;
+	font-size: 1.5rem;
+	margin-bottom: $column * 1.5;
 	line-height: 1.5em;
-	text-align: center;
+	//text-align: center;
 
 	@media #{min-width($medium-min)} {
-		margin-bottom: $column * 2;
+		margin-bottom: $column * 2.5;
 		font-size: 2.6rem;
 		line-height: 1.25em;
-		text-align: left;
+		//text-align: left;
 	}
 
 	@media #{min-width($large-min)} {

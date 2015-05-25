@@ -7,55 +7,87 @@
 
 
 <section id="work" class="row">
-	<div class="work-row">
-		<div class="work-col big">
-			<div>
-				<img src="//placehold.it/700x500/e0e1ee/e0e1ee" style="margin-top: 0;">
-				<a href="" class="button absolute top">—Greenhouse Go</a>
-				<a href="" class="button absolute">—Greenhouse Go</a>
-			</div>
-			<div>
-				<img src="//placehold.it/700x700/e0e1ee/e0e1ee">
-				<a href="" class="button absolute">—Greenhouse Go</a>
-			</div>
-			<div>
-				<img src="//placehold.it/700x700/e0e1ee/e0e1ee">
-			</div>
-			<div>
-				<img src="//placehold.it/700x700/e0e1ee/e0e1ee">
-				<a href="" class="button absolute neg-top">—Greenhouse Go</a>
-			</div>
-			<div style="width: 50%; float: right">
-				<img style="margin-top: 0;" src="//placehold.it/400x700/e0e1ee/e0e1ee">
-				<a href="" class="button absolute right" style="top: 0">—Greenhouse Go</a>
-			</div>
+	<header class="showcase-row">
+		<div class="showcase-col" col="medium-3">
+			<h2>Work Samples</h2>
 		</div>
-		<div class="work-col">
-			<div>
-				<img src="//placehold.it/400x800/e0e1ee/e0e1ee">
-				<a href="" class="button absolute right">—Greenhouse Go</a>
-			</div>
-			<div>
-				<img src="//placehold.it/400x600/e0e1ee/e0e1ee">
-				<a href="" class="button absolute right">—Greenhouse Go</a>
-			</div>
-			<div>
-				<img src="//placehold.it/400x800/e0e1ee/e0e1ee">
-				<a href="" class="button absolute right">—Greenhouse Go</a>
-			</div>
-			<div>
-				<img src="//placehold.it/400x600/e0e1ee/e0e1ee">
-			</div>
+		<div class="showcase-col legend" hide="large">
+			<ol>
+				<?php 
+					$work = $pages->find('work')->children()->visible();
+					$index = 0;
+				?>
+				<?php foreach ($work as $study): $index++; ?>
+				<li><a href="<?php echo $study->url() ?>">Fig <?php echo sprintf("%02d", $index) ?>. — <?php echo $study->short_name() ?></a></li>
+				<?php endforeach ?>
+			</ol>
+		</div>
+	</header>
+	<div class="showcase-row bottom">
+		<a class="showcase-col flush-top" col="7">
+			<span annotation="right flush-top">01.</span>
+			<img src="//placehold.it/400x275">
+		</a>
+		<div class="showcase-col" show="medium">
+			<img src="//placehold.it/300x300">
 		</div>
 	</div>
-</section>
 
-<?php $work = $pages->find('work')->children()->visible() ?>
-<!-- <section class="row">
-	<?php foreach ($work as $study): ?>
-	<a href="<?php echo $study->url() ?>"><h2><?php echo $study->title() ?></h2></a>
-	<?php endforeach ?>
-</section> -->
+	<div class="showcase-row top">
+		<a class="showcase-col" col="large-4">
+			<span annotation>02.</span>
+			<img src="//placehold.it/400x800">
+		</a>
+		<a class="showcase-col" col="large-2">
+			<span annotation>03.</span>
+			<img src="//placehold.it/400x400">
+			<img show="large" src="//placehold.it/400x400">
+			<img show="large" src="//placehold.it/400x400">
+		</a>
+		<div class="showcase-col spacer" col="1"></div>
+		<div class="showcase-col legend" show="large">
+			<ol>
+				<?php 
+					$work = $pages->find('work')->children()->visible();
+					$index = 0;
+				?>
+				<?php foreach ($work as $study): $index++; ?>
+				<li><a href="<?php echo $study->url() ?>">Fig <?php echo sprintf("%02d", $index) ?>. — <?php echo $study->short_name() ?></a></li>
+				<?php endforeach ?>
+			</ol>
+		</div>
+	</div>
+
+	<div class="showcase-row top flush">
+		<a class="showcase-col">
+			<span annotation>04.</span>
+			<img src="//placehold.it/400x275">
+		</a>
+		<a class="showcase-col">
+			<span annotation>05.</span>
+			<img src="//placehold.it/400x275">
+		</a>
+	</div>
+
+	<div class="showcase-row bottom flush">
+		<a class="showcase-col" col="3">
+			<span annotation>06.</span>
+			<img src="//placehold.it/400x300">
+		</a>
+		<a class="showcase-col flush-top">
+			<span annotation="left flush-top">07.</span>
+			<img src="//placehold.it/400x275">
+		</a>
+	</div>
+
+	<div class="showcase-row top">
+		<a class="showcase-col flush-top" col="9">
+			<span annotation="right flush-top">08.</span>
+			<img src="//placehold.it/400x200">
+		</a>
+	</div>
+
+</section>
 
 
 <div class="row">

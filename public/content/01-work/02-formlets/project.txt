@@ -2,6 +2,10 @@ Title: Formlets App & Brand
 
 ----
 
+Short Name: Formlets
+
+----
+
 Intro: Formlets is the online form builder for everyone. With a self evident user interface and a warm, welcoming approach, Formlets wants to be the go to answer for creating surveys and signups online. 
 
 In late 2014, I was hired to design the initial interface and user experience for Formlets. Through the early months of 2015, we've been prototyping features, designing their brand, and building the entire application and website from the ground up. Formlets is built on Node, MongoDB, Ampersand.js, and Vue.js. 

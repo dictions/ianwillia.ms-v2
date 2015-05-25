@@ -1,13 +1,20 @@
 #global-footer {
-	border-top: 2px dotted $blue;
-	//background: rgba($blue, 0.15);
-	padding: (1 * $column) 0;
-	margin-top: 2 * $column;
+	//border-top: 2px dotted $blue;
+	background: rgba($blue, 0.15);
+	padding: (2 * $column) 0;
+	margin-top: 2.5 * $column;
+	position: relative;
 
 	@media #{min-width($medium-min)} {
 		margin-top: 4 * $column;
-		padding: (2 * $column) 0;
 	}
+}
+
+#global-footer .logo {
+	position: absolute;
+	top: -22px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 #global-footer .nav-container {
