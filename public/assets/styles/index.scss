@@ -4,13 +4,16 @@
 @import 'base/layout';
 @import 'base/chrome';
 
+@import 'modules/grid';
+@import 'modules/visibility';
+@import 'modules/images';
+
+@import 'modules/scroll';
+
 @import 'modules/header';
 @import 'modules/footer';
 
 @import 'modules/about';
 @import 'modules/contact';
-@import 'modules/grid';
-@import 'modules/visibility';
-
 @import 'modules/home';
 @import 'modules/project';

@@ -69,7 +69,8 @@
 	}
 }
 
-.showcase-col img {
+.showcase-col figure {
+	background: $blue-light;
 	margin-bottom: $column/4;
 
 	@media #{min-width($medium-min)} {
@@ -116,6 +117,8 @@
 }
 
 .legend {
+
+	transform: none !important;
 
 	@media #{min-width($large-min)} {
 		margin-top: 4rem;

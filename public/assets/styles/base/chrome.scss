@@ -16,9 +16,57 @@
 }
 
 body {
-	transition: 2s opacity ease;
+	transition: 400ms opacity ease;
+}
+
+body.js-load {
+
+	h1.hero,
+	#work {
+		transform: translate3d(0,72px,0);
+		transition: transform 400ms cubic-bezier(.8,0,.2,1);
+	}
+
+	#global-header .logo {
+		transition: transform 400ms cubic-bezier(.8,0,.2,1);
+		transform: translate3d(0, -200px, 0);
+
+		@media #{min-width($medium-min)} {
+			transform: translate3d(-200px,0,0);
+		}
+	}
+
+	#global-header nav {
+		transition: transform 400ms cubic-bezier(.8,0,.2,1);
+		transform: translate3d(0, -100px, 0);
+
+		@media #{min-width($medium-min)} {
+			&:first-child {
+				transform: translate3d(-100px,0,0);
+			}
+
+			&:last-child {
+				transform: translate3d(100px,0,0);
+			}
+		}
+	}
+
+	h1.hero {
+		transition-delay: 0s;
+	}
+
+	#work {
+		transition-delay: 60ms;
+	}
 }
 
 body.js-load.js-load-finish {
 	opacity: 1;
+
+	h1.hero,
+	#work,
+	#global-header nav,
+	#global-header .logo {
+		transform: translate3d(0,0,0);
+	}
 }

@@ -19,7 +19,7 @@ DEVELOPMENT = true;
 <?php endif ?>
 <script type="text/javascript">
 var GLOBAL_MODULES = {
-	form: false,
+	form: false
 };
 </script>
 </head>

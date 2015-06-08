@@ -1,0 +1,38 @@
+[aspect-ratio] {
+	position: relative;
+	overflow: hidden;
+	height: 1px;
+}
+
+[aspect-ratio] img {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+[aspect-ratio~="1x1"] {
+	padding-bottom: 100%;
+}
+
+[aspect-ratio~="1x2"] {
+	padding-bottom: 200%;
+}
+
+[aspect-ratio~="2x1"] {
+	padding-bottom: 50%;
+}
+
+[aspect-ratio~="4x3"] {
+	padding-bottom: 75%;
+}
+
+img {
+
+	&.loading {
+		opacity: 0;
+	}
+
+	&.loading.loaded {
+		opacity: 1;
+	}
+}
