@@ -70,7 +70,9 @@ var validateAll = function() {
 };
 
 var showError = function(error) {
-	this.addClass('show').html(error);
+	var self = this;
+	this.html('<p>' + error + '</p>');
+	setTimeout(function() { self.addClass('show'); }, 10);
 };
 
 var listenOnBlur = function() {

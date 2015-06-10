@@ -27,7 +27,7 @@
 		<a class="showcase-col flush-top" col="7">
 			<span annotation="right flush-top">01.</span>
 			<figure aspect-ratio="4x3">
-				<img lazy-load src="//placehold.it/400x300">
+				<img lazy-load src="http://upload.wikimedia.org/wikipedia/commons/c/cc/ESC_large_ISS022_ISS022-E-11387-edit_01.JPG">
 			</figure>
 		</a>
 		<div class="showcase-col" show="medium">

@@ -4,10 +4,10 @@ Title: Ian Alexander Williams | Web Designer and Developer
 
 Links:
 
-angel.co: http://wikipedia.org
-dribbble: http://wikipedia.org
-twitter: http://wikipedia.org
-instagram: http://wikipedia.org
+dribbble: //dribbble.com/ian_dot_exe
+github: //github.com/dictions
+instagram: //instagram.com/ian_dot_exe
+twitter: //twitter.com/ian_dot_exe
 
 ----
 

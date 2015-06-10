@@ -27,6 +27,7 @@
 }
 
 img {
+	transition: 600ms opacity ease-out;
 
 	&.loading {
 		opacity: 0;

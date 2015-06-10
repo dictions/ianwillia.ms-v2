@@ -30,6 +30,11 @@ form button {
 	cursor: pointer;
 	display: block;
 	margin: 0;
+
+	&:focus,
+	&:active {
+		background: darken($blue,5%);
+	}
 }
 
 form fieldset {
@@ -131,7 +136,8 @@ fieldset .error {
 	cursor: pointer;
 	padding: $column / 2;
 	@include body-copy();
-	background: $yellow;
+	background: $blue;
+	color: white;
 	display: block;
 	position: absolute;
 	left:   0;
@@ -163,13 +169,20 @@ form .alert {
 	text-align: center;
 	opacity: 0;
 	pointer-events: none;
+	transition: 100ms opacity linear;
 
 	span {
 		flex: 1;
+		transition: transform 400ms cubic-bezier(.8,0,.2,1);
+		transform: translate3d(0,3rem,0);
 	}
 
 	&.show {
 		opacity: 1;
 		pointer-events: auto;
+
+		span {
+			transform: translate3d(0,0,0);
+		}
 	}
 }
