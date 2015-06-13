@@ -75,7 +75,7 @@ c::set('routes', array(
 			// build the email
 			$email = email(array(
 				'to'      => 'me@ianwillia.ms',
-				'from'    => 'Portfolio Contact Form <contact@ianwillia.ms>\r\n',
+				'from'    => 'contact@ianwillia.ms',
 				'subject' => 'WORK REQUEST',
 				'replyTo' => $data['email'],
 				'body'    => $body
@@ -95,7 +95,7 @@ c::set('routes', array(
 				);
 			}
 
-			//header('Content-Type: application/json');
+			//raheader('Content-Type: application/json');
 			return response::json($alert);
 
 		}

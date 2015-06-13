@@ -146,6 +146,7 @@ fieldset .error {
 	bottom: 0;
 	pointer-events: none;
 	opacity: 0;
+	transition: opacity 50ms linear;
 
 	&.show {
 		pointer-events: initial;

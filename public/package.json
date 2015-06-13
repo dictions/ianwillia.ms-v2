@@ -4,7 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "components-webfontloader": "^1.5.2",
+    "lodash": "^3.9.3",
     "superagent": "^1.2.0"
   }
 }

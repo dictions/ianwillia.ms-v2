@@ -6,7 +6,7 @@ var load = function(url, cb) {
 		if (!err && cb) {
 			cb(res.text);
 		} else {
-			cb(err);
+			console.warn(err);
 		}
 	});
 };

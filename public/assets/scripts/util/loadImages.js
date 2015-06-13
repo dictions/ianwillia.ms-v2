@@ -2,24 +2,23 @@ var $ = require('./sprint');
 
 var ImageLoad = function(selector) {
 	this.$images = $(selector);
+	this.init();
 	return this;
 };
 
-ImageLoad.prototype.load = function(callback) {
+ImageLoad.prototype.init = function() {
 	this.$images.each(function() {
-		var $image = $(this);
-		var src = $image.attr('src');
-
-		// Prevent loading
-		$image.removeAttr('src').addClass('loading');
+		var $image = $(this).addClass('loading');
+		var src = $image.attr('data-src');
 
 		// Setup Load
 		var loadingImage = new Image();
 		loadingImage.onload = function() {
 			$image.attr('src', src);
 			$image.addClass('loaded');
-			if (typeof(callback) === 'function') callback($image);
 		};
+
+		console.log($image, loadingImage);
 
 		// Trigger load
 		loadingImage.src = src;

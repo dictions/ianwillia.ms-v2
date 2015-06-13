@@ -1,32 +1,33 @@
-var loadCSS = require('./loadCSS');
+var css = require('./loadCSS');
 var compat = typeof(Storage) !== 'undefined';
-var loadedStyles = localStorage.getItem('cachedStyles');
-var loaded = loadedStyles !== null;
+var defer = require('lodash/function/defer');
+var noop = function() {};
 
-var cacheFontsToStorage = function(styles) {
-	localStorage.setItem('cachedStyles', styles);
-}
+var LoadStyles = function(opts) {
+	this.init(opts);
+};
 
-var loadFontsFromStorage = function() {
-	return localStorage.getItem('cachedStyles');
-}
+LoadStyles.prototype.init = function(opts) {
 
-module.exports.load = function(cb) {
-	if (compat) {
-		if (loaded) {
-			loadCSS.inject(loadedStyles);
-			if (cb) cb();
-		} else {
-			loadCSS.load('/assets/styles/_dist/index.css', function(styles) {
-				cacheFontsToStorage(styles);
-				loadCSS.inject(styles);
-				if (cb) cb();
-			});
-		}
+	var callback = (typeof opts.callback === 'function') ? opts.callback : noop;
+	var styleSheet = opts.src;
+	var storageKey = opts.storageKey;
+
+	var loadedStyles = localStorage.getItem(storageKey);
+	var loaded = loadedStyles !== null;
+
+	if (loaded) {
+		css.inject(loadedStyles);
+		callback();
 	} else {
-		getFonts(function(styles) {
-			loadCSS.inject(styles);
-			if (cb) cb();
-		});
+		css.load(styleSheet, function injectCss(styles) {
+			css.inject(loadedStyles);
+			callback();
+			defer(function() { // Lazily add to localStorage
+				localStorage.setItem(storageKey, styles);
+			});
+		});	
 	}
 };
+
+module.exports = LoadStyles;
