@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "lodash": "^3.9.3",
-    "superagent": "^1.2.0"
+    "superagent": "^1.2.0",
+    "velocity-animate": "^1.2.2"
   }
 }

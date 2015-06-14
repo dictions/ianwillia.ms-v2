@@ -1,12 +1,12 @@
 #global-header {
 	@include clearfix();
-	margin-top: $column;
+	padding-top: $column;
 	position: relative;
 	//text-align: center;
 
 	@media #{min-width($medium-min)} {
-		margin-top: (2 * $column);
-		margin-bottom: $column;
+		padding-top: (2 * $column);
+		padding-bottom: $column;
 		//text-align: left;
 	}
 }
@@ -23,7 +23,8 @@
 	@media (min-width: 1370px) {
 		position: absolute;
 		left: -5rem;
-		top: 10px;
+		top: (2 * $column);
+		padding-top: 10px;
 	}
 }
 

@@ -2,6 +2,7 @@ var defer = require('lodash/function/defer');
 var $ = require('./util/sprint');
 var FastClick = require('./util/fastclick');
 var contains = require('lodash/collection/contains');
+var Router = require('./router');
 
 var Images = require('./util/loadImages');
 var CSS = require('./util/loadStyles');
@@ -23,11 +24,10 @@ var Portfolio = function() {
 // ^^^^^^^^^^^^^^^^^^^^^^
 Portfolio.prototype.init = function() {
 	var self = this;
-	var afterFirstLoad = this.afterFirstLoad
-
 	this.loadStyleSheets(STYLESHEETS, function() {
 		defer(function() {$('body').addClass('js-load-finish');});
-		defer(afterFirstLoad.bind(self));
+		defer(self.onFirstLoad.bind(self));
+		defer(self.onPageChange.bind(self));
 	});
 };
 
@@ -35,14 +35,18 @@ Portfolio.prototype.init = function() {
 // ...................................................
 // === Things that can wait until after first load ===
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Portfolio.prototype.afterFirstLoad = function() {
-
-	// Lazily load images
-	new Images('[data-src]');
-
+Portfolio.prototype.onFirstLoad = function() {
 	// Initialize Fast Click
 	if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
+	// Initialize Router
+	new Router({
+		onPageChange: this.onPageChange.bind(this)
+	});
+};
 
+Portfolio.prototype.onPageChange = function() {
+	// Lazily load images
+	new Images('[data-src]');
 	// Initialize Modules
 	this.initModules();
 };

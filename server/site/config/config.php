@@ -99,5 +99,11 @@ c::set('routes', array(
 			return response::json($alert);
 
 		}
+	),
+	array(
+		'pattern' => 'work',
+		'action'  => function() {
+			go('/#work');
+		}
 	)
 ));

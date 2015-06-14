@@ -3,10 +3,10 @@
 	padding: $column 0;
 	position: relative;
 	margin: $column 0;
+	margin-bottom: 0;
 
 	@media #{min-width($medium-min)} {
-		margin: ($column * 2.5) 0;
-		margin-left: calc(30% - 74px);
+		margin: ($column * 2.5) 0 0 calc(30% - 74px);
 	}
 }
 

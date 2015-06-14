@@ -52,6 +52,7 @@ a {
 		height: 50%;
 		width: 100%;
 		background: rgba($blue, 0.15);
+		pointer-events: none;
 	}
 
 	&:hover:after {

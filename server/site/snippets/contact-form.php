@@ -1,4 +1,4 @@
-<form id="contact" action="/form" method="post">
+<form action="/form" method="post">
 	<div>
 		<fieldset>
 			<input class="input" name="fullname" type="text" placeholder="Full Name*" validate-required>

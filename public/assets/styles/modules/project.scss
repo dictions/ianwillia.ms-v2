@@ -28,7 +28,7 @@
 	}
 }
 
-.project-content main {
+.project-content .main {
 	margin-bottom: $column * 2;
 
 
@@ -49,7 +49,7 @@
 	}
 }
 
-.project-content main p {
+.project-content .main p {
 	@include intro();
 	margin-bottom: 1.78em;
 	max-width: 36rem;
