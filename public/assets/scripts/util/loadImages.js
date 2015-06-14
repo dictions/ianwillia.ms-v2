@@ -18,8 +18,6 @@ ImageLoad.prototype.init = function() {
 			$image.addClass('loaded');
 		};
 
-		console.log($image, loadingImage);
-
 		// Trigger load
 		loadingImage.src = src;
 	});

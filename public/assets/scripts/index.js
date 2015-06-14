@@ -1,6 +1,7 @@
 var defer = require('lodash/function/defer');
 var $ = require('./util/sprint');
 var FastClick = require('./util/fastclick');
+var contains = require('lodash/collection/contains');
 
 var Images = require('./util/loadImages');
 var CSS = require('./util/loadStyles');
@@ -21,12 +22,12 @@ var Portfolio = function() {
 // === Initialize App ===
 // ^^^^^^^^^^^^^^^^^^^^^^
 Portfolio.prototype.init = function() {
+	var self = this;
 	var afterFirstLoad = this.afterFirstLoad
 
 	this.loadStyleSheets(STYLESHEETS, function() {
-		console.log('STYLESHEETS LOADED');
-		$('body').addClass('js-load-finish');
-		defer(afterFirstLoad);
+		defer(function() {$('body').addClass('js-load-finish');});
+		defer(afterFirstLoad.bind(self));
 	});
 };
 
@@ -43,7 +44,7 @@ Portfolio.prototype.afterFirstLoad = function() {
 	if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
 
 	// Initialize Modules
-	//this.initModules();
+	this.initModules();
 };
 
 // ............................
@@ -74,20 +75,9 @@ Portfolio.prototype.loadStyleSheets = function(stylesheets, callback) {
 	});
 };
 
+Portfolio.prototype.initModules = function() {
+	if (contains(GLOBAL_MODULES, 'FORM')) ContactForm.init('#contact');
+};
+
 
 window.portfolio = new Portfolio();
-
-
-// 		WebFonts.load(function() {
-// 			counter++;
-// 			if (counter) jsLoad();
-// 		});
-// 		Styles.load(function() {
-// 			counter++;
-// 			if (counter) jsLoad();
-// 		});
-// 		new Images('[lazy-load]').load(function($i) {});
-		
-// 		if (GLOBAL_MODULES.form) Form.init('#contact');
-// var ContactForm = require('./modules/form');
-// var CSS = require('./util/styles');

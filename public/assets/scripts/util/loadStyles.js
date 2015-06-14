@@ -21,7 +21,7 @@ LoadStyles.prototype.init = function(opts) {
 		callback();
 	} else {
 		css.load(styleSheet, function injectCss(styles) {
-			css.inject(loadedStyles);
+			css.inject(styles);
 			callback();
 			defer(function() { // Lazily add to localStorage
 				localStorage.setItem(storageKey, styles);

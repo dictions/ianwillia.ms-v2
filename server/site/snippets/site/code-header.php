@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 
 	<noscript>
-	<link rel="stylesheet" type="text/css" href="/assets/styles/_dist/index.css">
-	<link rel="stylesheet" type="text/css" href="/assets/fonts/fonts.css">
+		<link rel="stylesheet" type="text/css" href="/assets/styles/_dist/index.css">
+		<link rel="stylesheet" type="text/css" href="/assets/fonts/fonts.css">
 	</noscript>
 	
 	<style>body.js-load {opacity: 0;}</style>
@@ -18,9 +18,9 @@
 	<script type="text/javascript">
 		var GLOBAL_MODULES = [];
 	</script>
-
 </head>
 <body class="no-js" id="body">
+
 <script type="text/javascript">
-document.getElementById('body').className = 'js-load';
+	document.getElementById('body').className = 'js-load';
 </script>

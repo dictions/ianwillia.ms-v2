@@ -1,4 +1,4 @@
-.slideshow {
+.project-hero {
 	z-index: -1000;
 	position: relative;
 
@@ -8,6 +8,16 @@
 
 	@media (min-width: $large-min) {
 		margin-bottom: -4 * $column;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 25%;
+		background: linear-gradient(rgba(#fff, 0), #fff);
 	}
 }
 
