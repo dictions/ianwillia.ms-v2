@@ -23,9 +23,18 @@
 			</figure>
 		</a>
 		<div class="showcase-col" show="medium">
-			<figure aspect-ratio="1x1">
-				<?php snippet('img', array('src' => '//placehold.it/300x300')) ?>
-			</figure>
+			<div id="ct">
+				<figure aspect-ratio="1x1">
+					<img src="/assets/images/head_sprite.png">
+				</figure>
+				<span>ian.ct—2015.03.10</span>
+				<div range-track>
+					<div range-thumb></div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				GLOBAL_MODULES.push('CT');
+			</script>
 		</div>
 	</div>
 

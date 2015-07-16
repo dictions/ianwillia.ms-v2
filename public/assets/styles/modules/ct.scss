@@ -1,0 +1,55 @@
+#ct {
+	position: relative;
+	@include no-select();
+}
+
+#ct img {
+	width: auto;
+	height: 100%;
+}
+
+#ct figure {
+	border: 3px solid $blue;
+}
+
+#ct span {
+	position: absolute;
+	top: 0.5rem;
+	left: 1rem;
+}
+
+#ct [range-track] {
+	position: absolute;
+	left: 25px;
+	right: 25px;
+	bottom: -7px;
+	height: 17px;
+}
+
+#ct [range-thumb] {
+	content: '';
+	width: 17px;
+	height: 17px;
+	background: $blue;
+	box-shadow: inset 0 0 0 3px white;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+	transform: rotate(-90deg) translateX(-8px);
+	transform-origin: 0 8px;
+	
+
+
+	&:after {
+		display: none;
+		content: attr(data-content);
+		position: relative;
+		left: 30px;
+		top: -9.5px;
+
+		@media #{min-width($large-min)} {
+			display: block;
+		}
+	}
+}

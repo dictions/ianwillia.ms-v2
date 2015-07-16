@@ -1,13 +1,14 @@
 var defer = require('lodash/function/defer');
 var $ = require('./util/sprint');
 var FastClick = require('./util/fastclick');
-var contains = require('lodash/collection/contains');
+var _contains = require('lodash/collection/contains');
 var Router = require('./router');
 
 var Images = require('./util/loadImages');
 var CSS = require('./util/loadStyles');
 
 var ContactForm = require('./modules/form');
+var CT = require('./modules/ct');
 
 
 // .......................
@@ -80,7 +81,8 @@ Portfolio.prototype.loadStyleSheets = function(stylesheets, callback) {
 };
 
 Portfolio.prototype.initModules = function() {
-	if (contains(GLOBAL_MODULES, 'FORM')) ContactForm.init('#contact');
+	if (_contains(GLOBAL_MODULES, 'FORM')) ContactForm.init('#contact');
+	if (_contains(GLOBAL_MODULES, 'CT')) CT.init('#ct');
 };
 
 

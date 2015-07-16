@@ -6,7 +6,7 @@
 
 	@media #{min-width($medium-min)} {
 		padding-top: (2 * $column);
-		padding-bottom: $column;
+		//padding-bottom: $column;
 		//text-align: left;
 	}
 }
@@ -53,6 +53,7 @@ h1.hero {
 	//text-align: center;
 
 	@media #{min-width($medium-min)} {
+		padding-top: $column;
 		margin-bottom: $column * 2.5;
 		font-size: 2.6rem;
 		line-height: 1.25em;

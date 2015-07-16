@@ -63,7 +63,7 @@ Router.prototype.goToPage = function(link) {
 	var content = request.get(link.href);
 
 	if (window.scrollY > 20) {
-		scrollToEl('#global-header', function() {
+		scrollToEl('main', function() {
 			content.end(function(err, res) {
 				if (err) return console.log(err);
 				var content = /<main\s*[^>]*>([\S\s]*?)<\/main>/im.exec(res.text)[0];
