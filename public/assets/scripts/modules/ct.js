@@ -52,7 +52,7 @@ var rangeInactive = function(e) {
 
 var setPosition = function() {
 	this.$thumb.css('left', (this.rangePosition / 60 * 100) + '%');
-	this.$thumb.attr('data-content', '—' + (this.rangePosition * 3) + 'DEG' + (this.rangePosition * 3).toString(2));
+	this.$thumb.attr('data-content', (this.rangePosition * 3) + 'DEG' + (this.rangePosition * 3).toString(2));
 };
 
 var setImage = _debounce(function(){

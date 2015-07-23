@@ -103,6 +103,15 @@ fieldset select {
     		-webkit-box-shadow: 0 0 0 1000px $blue-light inset;
     	}
     }
+
+	&::selection {
+		background: $blue;
+		color: white;
+	}
+	&::-moz-selection {
+		background: $blue;
+		color: white;
+	}
 }
 
 fieldset select {
