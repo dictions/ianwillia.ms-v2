@@ -2,7 +2,8 @@ var defer = require('lodash/function/defer');
 var $ = require('./util/sprint');
 var FastClick = require('./util/fastclick');
 var _contains = require('lodash/collection/contains');
-var Router = require('./router');
+//var Router = require('./router');
+var Router = require('./newRouter');
 
 var Images = require('./util/loadImages');
 var CSS = require('./util/loadStyles');
@@ -26,9 +27,7 @@ var Portfolio = function() {
 Portfolio.prototype.init = function() {
 	var self = this;
 	this.loadStyleSheets(STYLESHEETS, function() {
-		defer(function() {$('body').addClass('js-load-finish');});
 		defer(self.onFirstLoad.bind(self));
-		defer(self.onPageChange.bind(self));
 	});
 };
 
@@ -40,16 +39,7 @@ Portfolio.prototype.onFirstLoad = function() {
 	// Initialize Fast Click
 	if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
 	// Initialize Router
-	new Router({
-		onPageChange: this.onPageChange.bind(this)
-	});
-};
-
-Portfolio.prototype.onPageChange = function() {
-	// Lazily load images
-	new Images('[data-src]');
-	// Initialize Modules
-	this.initModules();
+	this.router = new Router();
 };
 
 // ............................
@@ -74,7 +64,7 @@ Portfolio.prototype.loadStyleSheets = function(stylesheets, callback) {
 	stylesheets.forEach(function(s) {
 		s.callback = function() {
 			loadedCount++;
-			if (loadedCount >= count && typeof callback === 'function') callback();
+			if (loadedCount >= count) callback();
 		};
 		new CSS(s);
 	});
