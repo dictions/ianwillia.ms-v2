@@ -26,6 +26,7 @@
     "gulp-uglifycss": "^1.0.4",
     "gutil": "^1.6.4",
     "http-server": "^0.8.0",
+    "stringify": "^3.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }

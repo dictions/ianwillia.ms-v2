@@ -8,6 +8,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var css = require('gulp-uglifycss');
 var livereload = require('gulp-livereload');
+var stringify = require('stringify');
 
 var paths = {
 	scripts: ['public/assets/scripts/**/*.js', '!public/assets/scripts/_dist/*'],
@@ -18,6 +19,7 @@ var paths = {
 
 gulp.task('scripts', function() {
 	return browserify('./public/assets/scripts/index.js')
+	.transform(stringify(['.html']))
 	.bundle()
 	.pipe(source('index.js'))
 	.pipe(buffer())
