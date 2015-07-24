@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
 	.bundle()
 	.pipe(source('index.js'))
 	.pipe(buffer())
-	//.pipe(uglify())
+	.pipe(uglify())
 	.pipe(gulp.dest('public/assets/scripts/_dist'))
 	.pipe(livereload());
 });

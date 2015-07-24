@@ -3,8 +3,8 @@
 
 <main>
 
-	<header class="project-hero">
-		<img src="<?php echo $hero->url() ?>">
+	<header class="project-hero" aspect-ratio="hero">
+		<img data-src="<?php echo $hero->url() ?>">
 	</header>
 
 	<div class="row project-content">

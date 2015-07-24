@@ -95,6 +95,8 @@ var replaceContent = function(content, callback) {
 module.exports = Router.extend({
 
 	loaded: false,
+	ct: false,
+	contactForm: false,
 	
 	routes: {
 		'work/:project': 'project',
@@ -134,17 +136,28 @@ module.exports = Router.extend({
 	home: function() {
 		var self = this;
 
+		// Sleezy destroy home modules.
+		if (this.ct !== false) {
+			this.ct.destroy();
+			this.ct = false;
+		}
+		if (this.contactForm !== false) {
+			this.contactForm.destroy();
+			this.contactForm = false;
+		}
+
 		if (!this.loaded) {
 			this.firstLoad();
-			ContactForm.init('#contact');
-			CT.init('#ct');
+			self.onPageChange();
+			this.contactForm = new ContactForm('#contact');
+			this.ct = new CT('#ct');
 		} else {
 			// load page while scrolling, replace content
 			loadPage(prepLink(location.href), 'body', function(content) {
 				replaceContent(content, function() {
 					self.onPageChange();
-					ContactForm.init('#contact');
-					CT.init('#ct');
+					self.contactForm = new ContactForm('#contact');
+					self.ct = new CT('#ct');
 				});
 			});
 		}
@@ -155,6 +168,7 @@ module.exports = Router.extend({
 
 		if (!this.loaded) {
 			this.firstLoad();
+			self.onPageChange();
 		} else {
 			// If coming from the home page, add a little padding to the hero
 			// ;) shhhhhhhhhhhhhhhhhhhhh

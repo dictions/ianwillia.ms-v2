@@ -1,11 +1,13 @@
 #ct {
 	position: relative;
 	@include no-select();
+	cursor: pointer;
 }
 
 #ct img {
 	width: auto;
 	height: 100%;
+	pointer-events: none;
 }
 
 #ct figure {

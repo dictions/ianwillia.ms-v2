@@ -2,23 +2,37 @@ var $ = require('../util/sprint');
 var _debounce = require('lodash/function/debounce');
 
 var initialize = function(ctSelector) {
+	this.destroy = destroy.bind(this);
 	this.$ct = $(ctSelector);
 	this.$image = this.$ct.find('img');
 	this.$thumb = this.$ct.find('[range-thumb]');
 	this.$track = this.$ct.find('[range-track]');
 	this.rangeActive = false;
 	this.rangePosition = 0;
+	setPosition.call(this);
 	listen.call(this);
+	animate.call(this);
 };
 
 var listen = function() {
-	this.$track.on('mousedown', rangeActive.bind(this));
-	this.$track.on('mouseup', rangeInactive.bind(this));
+	this.$ct.on('mousedown', rangeActive.bind(this));
+	this.$ct.on('mouseup', rangeInactive.bind(this));
+	this.$ct.on('touchstart', rangeActive.bind(this));
+	this.$ct.on('touchend', rangeInactive.bind(this));
+};
+
+var destroy = function() {
+	this.$ct.off('mousedown');
+	this.$ct.off('mouseup');
+	this.$ct.off('touchstart');
+	this.$ct.off('touchend');
+	clearInterval(this.animationInterval);
 };
 
 var rangeActive = function(e) {
 	var self = this;
 	this.rangeActive = true;
+	this.animating = false;
 
 	var rangeLeft = e.currentTarget.getBoundingClientRect().left;
 	var rangeWidth = e.currentTarget.offsetWidth;
@@ -29,6 +43,10 @@ var rangeActive = function(e) {
 		document.removeEventListener('mousemove', dragSlider);
 		document.removeEventListener('touchend', deactivateSlider);
 		document.removeEventListener('touchmove', dragSlider);
+
+
+		// animate again ;)
+		setTimeout(function() { animate.call(self); }, 1000);
 	};
 
 	var dragSlider = function(e) {
@@ -72,4 +90,24 @@ var translateX = function(x) {
 	return tr;
 };
 
-module.exports.init = initialize;
+var animate = function() {
+	var self = this;
+	this.animating = true;
+
+	this.animationInterval = setInterval(function() {
+		if (self.animating) {
+			if (self.rangePosition >= 60) {
+				self.rangePosition = 0;
+			} else {
+				self.rangePosition += 1;
+				setPosition.call(self);
+				setImage.call(self);
+			}
+		} else {
+			clearInterval(self.animationInterval);
+		}
+	}, 1000 / 30);
+
+};
+
+module.exports = initialize;

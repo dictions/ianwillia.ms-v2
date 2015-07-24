@@ -13,8 +13,12 @@
 #global-footer .logo {
 	position: absolute;
 	top: -22px;
-	left: 50%;
-	transform: translateX(-50%);
+	left: ($column / 4);	
+
+	@media #{min-width($medium-min)} {
+		transform: translateX(-50%);
+		left: 50%;
+	}
 }
 
 #global-footer .nav-container {
@@ -25,7 +29,7 @@
 
 #global-footer nav {
 	margin-bottom: $column;
-	text-align: center;
+	//text-align: center;
 
 	@media #{min-width($medium-min)} {
 		text-align: left;

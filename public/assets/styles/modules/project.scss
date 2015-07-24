@@ -3,11 +3,11 @@
 	position: relative;
 
 	@media (min-width: $medium-min) {
-		margin-bottom: -2 * $column;
+		margin-bottom: -$column;
 	}
 
 	@media (min-width: $large-min) {
-		margin-bottom: -4 * $column;
+		margin-bottom: -2 * $column;
 	}
 
 	&:after {

@@ -3,6 +3,7 @@
 	position: relative;
 	overflow: hidden;
 	height: 1px;
+	@include no-select();
 }
 
 [aspect-ratio] img {
@@ -28,7 +29,7 @@
 }
 
 [aspect-ratio~="hero"] {
-	padding-bottom: 66.6666%;
+	padding-bottom: 50%;
 }
 
 img {

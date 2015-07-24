@@ -2,6 +2,7 @@ var $ = require('../util/sprint');
 var request = require('superagent');
 
 var initialize = function(formSelector) {
+	this.destroy = destroy.bind(this);
 	this.$form = $(formSelector);
 	this.$required = this.$form.find('[validate-required]');
 	this.$email = this.$form.find('[validate-email]');
@@ -32,6 +33,19 @@ var listen = function() {
 	this.$alert.on('click', function(e) {
 		$(this).removeClass('show');
 	});
+};
+
+var destroy = function() {
+	var self = this;
+	this.$textarea.off('input propertychange keyup change');
+	this.$submit.off('click');
+	this.$submit.off('keydown');
+	this.$error.off('click');
+	this.$alert.off('click');
+	this.$email.off('blur');
+	this.$email.off('focus');
+	this.$required.off('blur');
+	this.$required.off('focus');
 };
 
 var validateEmail = function(e, form) {
@@ -131,4 +145,4 @@ var showFormError = function() {
 	clearForm.call(this);
 };
 
-module.exports.init = initialize;
+module.exports = initialize;

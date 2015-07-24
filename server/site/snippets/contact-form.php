@@ -42,6 +42,3 @@
 	</p>
 	<button class="submit">Submit Project Inquiry</button>
 </form>
-<script type="text/javascript">
-	GLOBAL_MODULES.push('FORM');
-</script>
