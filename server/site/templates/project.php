@@ -2,9 +2,8 @@
 <?php snippet('site/header') ?>
 
 <main>
-
 	<header class="project-hero" aspect-ratio="hero">
-		<img data-src="<?php echo $page->files()->find('hero.jpg')->url() ?>">
+		<?php snippet('img', array('src' => $page->files()->find('hero.jpg')->url())) ?>
 	</header>
 
 	<div class="row project-content">
