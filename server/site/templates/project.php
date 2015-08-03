@@ -4,7 +4,7 @@
 <main>
 
 	<header class="project-hero" aspect-ratio="hero">
-		<img data-src="<?php echo $hero->url() ?>">
+		<img data-src="<?php echo $page->files()->find('hero.jpg')->url() ?>">
 	</header>
 
 	<div class="row project-content">
@@ -37,7 +37,17 @@
 			if (!$prev) $prev = $pages->find('work')->children()->visible()->last();
 			if (!$next) $next = $pages->find('work')->children()->visible()->first();
 		?>
-		<?php snippet('project/pagination', array('prev' => $prev, 'next' => $next)) ?>
+
+		<section class="pagination">
+			<a href="<?php echo $prev->url()?>" class="cta-group">
+				<span class="cta">previous project</span><br>
+				<span class="cta"><?php echo $prev->title()?></span>
+			</a>
+			<a href="<?php echo $next->url()?>" class="cta-group">
+				<span class="cta">next project</span><br>
+				<span class="cta"><?php echo $next->title()?></span>
+			</a>
+		</section>
 	</div>
 
 </main>
