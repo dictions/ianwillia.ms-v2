@@ -15,6 +15,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 // We use this to do clear floats
 @mixin clearfix {
 	&:before, &:after { content: " "; display: table; }
