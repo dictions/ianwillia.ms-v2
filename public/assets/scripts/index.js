@@ -21,12 +21,14 @@ var Portfolio = function() {
 // ^^^^^^^^^^^^^^^^^^^^^^
 Portfolio.prototype.init = function() {
 	var self = this;
-	this.loadStyleSheets(STYLESHEETS, defer(function() {
-		// Initialize Fast Click
-		if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
-		// Initialize Router
-		self.router = new Router();	
-	}));
+	this.loadStyleSheets(STYLESHEETS, function() {
+		defer(function() {
+			// Initialize Fast Click
+			if (((('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch))) FastClick();
+			// Initialize Router
+			self.router = new Router();	
+		});
+	});
 };
 
 // ............................
