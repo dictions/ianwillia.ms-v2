@@ -9,6 +9,7 @@ var initialize = function(ctSelector) {
 	this.$track = this.$ct.find('[range-track]');
 	this.rangeActive = false;
 	this.rangePosition = 0;
+	this.$image.attr('src', this.$image.attr('ct-src'));
 	setPosition.call(this);
 	listen.call(this);
 	animate.call(this);
@@ -106,7 +107,7 @@ var animate = function() {
 		} else {
 			clearInterval(self.animationInterval);
 		}
-	}, 1000 / 30);
+	}, 1000 / 20);
 
 };
 

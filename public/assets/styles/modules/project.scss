@@ -1,23 +1,29 @@
 .project-hero {
 	z-index: -1000;
 	position: relative;
+	margin-bottom: $column;
 
 	@media (min-width: $medium-min) {
-		margin-bottom: -$column;
-	}
-
-	@media (min-width: $large-min) {
 		margin-bottom: -2 * $column;
 	}
 
+	@media (min-width: $large-min) {
+		margin-bottom: -4 * $column;
+	}
+
 	&:after {
+		display: none;
 		content: '';
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: 25%;
+		height: 40%;
 		background: linear-gradient(rgba(#fff, 0), #fff);
+
+		@media (min-width: $medium-min) {
+			display: block;
+		}
 	}
 }
 

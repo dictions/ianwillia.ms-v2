@@ -48,15 +48,17 @@ var loadPage = function(link, el, callback) {
 		scrollToEl(el, function() {
 			content.end(function(err, res) {
 				if (err) return console.log(err);
-				var content = /<main\s*[^>]*>([\S\s]*?)<\/main>/im.exec(res.text)[0];
-				if (callback) callback(content);
+				var content = /<main\s*[^>]*>([\S\s]*?)<\/main>/im.exec(res.text)[1];
+				var title = /<title\s*[^>]*>([\S\s]*?)<\/title>/im.exec(res.text)[1];
+				if (callback) callback(content, title);
 			});
 		});
 	} else {
 		content.end(function(err, res) {
 			if (err) return console.log(err);
-			var content = /<main\s*[^>]*>([\S\s]*?)<\/main>/im.exec(res.text)[0];
-			if (callback) callback(content);
+			var content = /<main\s*[^>]*>([\S\s]*?)<\/main>/im.exec(res.text)[1];
+			var title = /<title\s*[^>]*>([\S\s]*?)<\/title>/im.exec(res.text)[1];
+			if (callback) callback(content, title);
 		});
 	}
 };
@@ -153,7 +155,8 @@ module.exports = Router.extend({
 			this.ct = new CT('#ct');
 		} else {
 			// load page while scrolling, replace content
-			loadPage(prepLink(location.href), 'body', function(content) {
+			loadPage(prepLink(location.href), 'body', function(content, title) {
+				document.title = title;
 				replaceContent(content, function() {
 					self.onPageChange();
 					self.contactForm = new ContactForm('#contact');
@@ -178,7 +181,8 @@ module.exports = Router.extend({
 			});
 
 			// load page while scrolling, replace content
-			loadPage(prepLink(location.href), 'main', function(content) {
+			loadPage(prepLink(location.href), 'main', function(content, title) {
+				document.title = title;
 				replaceContent(content, function() {
 					self.onPageChange();
 				});

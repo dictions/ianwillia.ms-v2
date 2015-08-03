@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php if($page->isHomepage()): ?>
+	<title><?php echo html($site->title()) ?></title>
+	<?php else: ?>
+	<title><?php echo html($page->title() . ' | ' . $site->title()) ?></title>
+	<?php endif ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta charset="UTF-8">
 

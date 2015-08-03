@@ -25,7 +25,7 @@
 		<div class="showcase-col" show="medium">
 			<div id="ct">
 				<figure aspect-ratio="1x1">
-					<img data-src="/assets/images/head_sprite.png">
+					<img ct-src="/assets/images/head_sprite.png">
 				</figure>
 				<span>ian.ct—2015.03.10</span>
 				<div range-track>
