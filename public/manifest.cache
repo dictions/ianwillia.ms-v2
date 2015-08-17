@@ -1,10 +1,8 @@
 CACHE MANIFEST
-# 2015.08.14:v1
+# 2015.08.17:v1
 
 CACHE:
 /assets/styles/_dist/index.css
-/assets/fonts/a-bold.woff
-/assets/fonts/a-mono.woff
 /assets/fonts/gt-s-bold.woff
 /assets/fonts/gt-s-medium.woff
 /assets/scripts/_dist/index.js
