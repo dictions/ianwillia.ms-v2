@@ -6,6 +6,7 @@ var Velocity = require('velocity-animate');
 var Images = require('./util/loadImages');
 var ContactForm = require('./modules/form');
 var CT = require('./modules/ct');
+var Hero = require('./modules/hero');
 
 
 
@@ -99,6 +100,7 @@ module.exports = Router.extend({
 	loaded: false,
 	ct: false,
 	contactForm: false,
+	hero: false,
 	
 	routes: {
 		'work/:project': 'project',
@@ -147,12 +149,17 @@ module.exports = Router.extend({
 			this.contactForm.destroy();
 			this.contactForm = false;
 		}
+		if (this.hero !== false) {
+			this.hero.destroy();
+			this.hero = false;
+		}
 
 		if (!this.loaded) {
 			this.firstLoad();
 			self.onPageChange();
 			this.contactForm = new ContactForm('#contact');
 			this.ct = new CT('#ct');
+			this.hero = new Hero('.hero');
 		} else {
 			// load page while scrolling, replace content
 			loadPage(prepLink(location.href), 'body', function(content, title) {
@@ -161,6 +168,7 @@ module.exports = Router.extend({
 					self.onPageChange();
 					self.contactForm = new ContactForm('#contact');
 					self.ct = new CT('#ct');
+					self.hero = new Hero('.hero');
 				});
 			});
 		}

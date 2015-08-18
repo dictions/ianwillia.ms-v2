@@ -1,0 +1,25 @@
+Title: Gazebo Marketing Site
+
+----
+
+Short Name: Gazebo.io
+
+----
+
+Intro: Gazebo is an automated payment release platform for banks and exporters. Powered by GPS tracking and a multi-signature blockchain release, payment is released to the seller automatically when a shipment is verified.
+
+The founders of Gazebo came to me to design and build the first version of their marketing site. I created a fresh look and a snappy user experience that is a stand out in their largely homogeneous industry.
+
+----
+
+Overview:
+
+Services: |
+	Brand Design
+	UI/UX Design
+	Web Development
+Company: Gazebo.io
+Collaborators: | 
+	(link: https://dribbble.com/winduptoy text: Matt Reyer class:redirect target:_blank)
+Website: | 
+	(link: http://gazebo.io class:redirect target:_blank)

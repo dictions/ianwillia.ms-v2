@@ -41,6 +41,7 @@ a {
 
 @mixin cta {
 	position: relative;
+	display: inline-block;
 
 	&:after {
 		content: '';

@@ -1,7 +1,7 @@
 #ct {
 	position: relative;
 	@include no-select();
-	cursor: pointer;
+	cursor: help;
 }
 
 #ct img {

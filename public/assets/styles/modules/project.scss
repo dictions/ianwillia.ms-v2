@@ -19,7 +19,7 @@
 		left: 0;
 		right: 0;
 		height: 40%;
-		background: linear-gradient(rgba(#fff, 0), #fff);
+		background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0) 100%);
 
 		@media (min-width: $medium-min) {
 			display: block;
@@ -30,7 +30,7 @@
 .project-content {
 	@media (min-width: $large-min) {
 		display: flex;
-		margin-bottom: 4 * $column;
+		margin-bottom: 2 * $column;
 	}
 }
 
@@ -113,7 +113,7 @@
 }
 
 .pagination {
-	margin-top: $column * 2;
+	margin-top: $column * 3;
 
 	@media (min-width: $medium-min) {
 		display: flex;

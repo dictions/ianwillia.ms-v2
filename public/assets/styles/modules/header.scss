@@ -44,15 +44,27 @@
 	}
 }
 
+.hero-row {
+	@include no-select();
+}
+
 h1.hero {
 	font-size: 1.5rem;
-	margin-bottom: $column * 1.5;
+	padding-bottom: $column * 1.5;
 	line-height: 1.5em;
 	//text-align: center;
+	@include no-select();
+	cursor: help;
+	-webkit-touch-callout: initial;
+	-webkit-user-select: initial;
+	-khtml-user-select: initial;
+	-moz-user-select: initial;
+	-ms-user-select: initial;
+	user-select: initial;
 
 	@media #{min-width($medium-min)} {
 		//padding-top: $column;
-		margin-bottom: $column * 2.5;
+		padding-bottom: $column * 2.5;
 		font-size: 2.6rem;
 		line-height: 1.25em;
 		//text-align: left;

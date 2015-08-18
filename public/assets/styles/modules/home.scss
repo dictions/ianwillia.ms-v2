@@ -63,7 +63,8 @@
 }
 
 @media #{min-width($medium-min)} {
-	a.showcase-col:hover {
+	a.showcase-col:hover,
+	a.showcase-col.active, {
 		box-shadow: inset 0 0 0 3px $blue;
 		cursor: pointer;
 	}

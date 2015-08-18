@@ -27,13 +27,14 @@ var destroy = function() {
 	this.$ct.off('mouseup');
 	this.$ct.off('touchstart');
 	this.$ct.off('touchend');
-	clearInterval(this.animationInterval);
 };
 
 var rangeActive = function(e) {
 	var self = this;
 	this.rangeActive = true;
 	this.animating = false;
+	clearInterval(this.animationInterval);
+
 
 	var rangeLeft = e.currentTarget.getBoundingClientRect().left;
 	var rangeWidth = e.currentTarget.offsetWidth;
@@ -57,6 +58,8 @@ var rangeActive = function(e) {
 			setImage.call(self);
 		}
 	};
+
+	dragSlider(e);
 
 	document.addEventListener('mousemove', dragSlider);
 	document.addEventListener('mouseup', deactivateSlider);
@@ -104,8 +107,6 @@ var animate = function() {
 				setPosition.call(self);
 				setImage.call(self);
 			}
-		} else {
-			clearInterval(self.animationInterval);
 		}
 	}, 1000 / 20);
 

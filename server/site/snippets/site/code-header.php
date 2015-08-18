@@ -13,6 +13,8 @@
 	<?php endif ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="/assets/images/favicon-16.png" />
+	<link rel="icon" type="image/png" href="/assets/images/favicon-32.png" />
 
 	<!-- OpenGraph -->
 	<meta property="og:title" content="<?php echo html($page->title() . ' | ' . $site->title()) ?>" />
