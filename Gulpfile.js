@@ -11,29 +11,29 @@ var livereload = require('gulp-livereload');
 var stringify = require('stringify');
 
 var paths = {
-	scripts: ['public/assets/scripts/**/*.js', '!public/assets/scripts/_dist/*'],
-	styles: ['public/assets/styles/**/*.scss', '!public/assets/styles/_dist/*'],
+	scripts: ['assets/scripts/**/*.js', '!assets/scripts/_dist/*'],
+	styles: ['assets/styles/**/*.scss', '!assets/styles/_dist/*'],
 	php: ['server/site/**/*.php'],
-	content: ['public/content/**/*'],
+	content: ['content/**/*'],
 };
 
 gulp.task('scripts', function() {
-	return browserify('./public/assets/scripts/index.js')
+	return browserify('./assets/scripts/index.js')
 	.transform(stringify(['.html']))
 	.bundle()
 	.pipe(source('index.js'))
 	.pipe(buffer())
 	.pipe(uglify())
-	.pipe(gulp.dest('public/assets/scripts/_dist'))
+	.pipe(gulp.dest('assets/scripts/_dist'))
 	.pipe(livereload());
 });
 
 gulp.task('stylesheets', function() {
-	return gulp.src('./public/assets/styles/index.scss')
+	return gulp.src('./assets/styles/index.scss')
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 2 versions'))
 	.pipe(css())
-	.pipe(gulp.dest('public/assets/styles/_dist'))
+	.pipe(gulp.dest('assets/styles/_dist'))
 	.pipe(livereload());
 });
 
