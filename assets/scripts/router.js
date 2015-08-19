@@ -156,7 +156,7 @@ module.exports = Router.extend({
 
 		if (!this.loaded) {
 			this.firstLoad();
-			self.onPageChange();
+			new Images('[data-src]', true);
 			this.contactForm = new ContactForm('#contact');
 			this.ct = new CT('#ct');
 			this.hero = new Hero('.hero');
@@ -165,7 +165,7 @@ module.exports = Router.extend({
 			loadPage(prepLink(location.href), 'body', function(content, title) {
 				document.title = title;
 				replaceContent(content, function() {
-					self.onPageChange();
+					new Images('[data-src]');
 					self.contactForm = new ContactForm('#contact');
 					self.ct = new CT('#ct');
 					self.hero = new Hero('.hero');
@@ -179,7 +179,7 @@ module.exports = Router.extend({
 
 		if (!this.loaded) {
 			this.firstLoad();
-			self.onPageChange();
+			new Images('[data-src]');
 		} else {
 			// If coming from the home page, add a little padding to the hero
 			// ;) shhhhhhhhhhhhhhhhhhhhh
@@ -192,17 +192,10 @@ module.exports = Router.extend({
 			loadPage(prepLink(location.href), 'main', function(content, title) {
 				document.title = title;
 				replaceContent(content, function() {
-					self.onPageChange();
+					new Images('[data-src]');
 				});
 			});
 		}
-	},
-
-	// .....................................
-	// === Happens on every route change ===
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	onPageChange: function() {
-		new Images('[data-src]');
 	},
 
 	// ..........................................
