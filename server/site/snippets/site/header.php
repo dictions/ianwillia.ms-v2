@@ -11,7 +11,7 @@
 		<nav>
 			<ul class="contact">
 				<li><a href="/#contact" class="cta-group">
-					<span class="cta">october 2015</span><br>
+					<span class="cta">december 2015</span><br>
 					<span class="cta">available for contract</span>
 				</a></li>
 			</ul>
