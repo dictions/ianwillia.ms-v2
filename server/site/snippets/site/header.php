@@ -11,8 +11,8 @@
 		<nav>
 			<ul class="contact">
 				<li><a href="/#contact" class="cta-group">
-					<span class="cta">january 2016</span><br>
-					<span class="cta">available for contract</span>
+					<span class="cta">currently all booked up</span><br>
+					<span class="cta">available for adventure</span>
 				</a></li>
 			</ul>
 		</nav>
