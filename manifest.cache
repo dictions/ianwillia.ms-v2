@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2015.10.06:v1
+# 2016.1.02:v1
 
 CACHE:
 /assets/styles/_dist/index.css
@@ -11,8 +11,4 @@ CACHE:
 /assets/images/head_sprite.png
 
 NETWORK:
-/
-/work/*
 *
-
-FALLBACK:
