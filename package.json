@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "ampersand-router": "^3.0.2",
+    "gulp-sass": "^2.1.1",
     "lodash": "^3.9.3",
     "superagent": "^1.2.0",
     "velocity-animate": "^1.2.2",
