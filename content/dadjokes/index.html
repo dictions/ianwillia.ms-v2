@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Dad Jokes</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css"/>
+<body>
+	<header>
+		<img src="header.gif"/>
+	</header>
+	<div id="editor-wrapper" class="draggable">
+		<div id="editor">
+			<img src="textedit.jpg"/>
+			<textarea id="textarea">
+
+
+
+
+
+                        dad jokes is an Extremely Good Design Team.
+
+
+
+
+
+
+
+
+
+                        👨🏻   Garrett - studio-victorious.com
+
+                                            &
+
+                        👨🏻   Ian - ianwillia.ms</textarea>
+		</div>
+	<div>
+	<script src="drag.js"></script>
+	<script>
+	var $editor = document.getElementById('textarea');
+	var $draggleElements = document.querySelectorAll('.draggable');
+	var intialValue = $editor.value;
+
+	$editor.focus();
+	$editor.value = '';
+	$editor.value = intialValue;
+
+	[].forEach.call($draggleElements, function($el) {
+		new Draggabilly($el);
+	});
+	</script>
+</body>
+</html>
