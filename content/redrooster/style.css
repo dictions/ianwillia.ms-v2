@@ -1,7 +1,8 @@
 /* GRID */
-@media (min-width: 1200px) {
-	.grid {
-		margin: 0 calc(-200px + 4rem);
+@media (min-width: 1400px) {
+	.grid,
+	header {
+		margin: 0 calc(-300px + 4rem);
 	}
 
 	.column {
