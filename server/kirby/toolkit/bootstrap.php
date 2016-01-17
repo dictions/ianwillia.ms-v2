@@ -8,11 +8,15 @@ if(!defined('BOM')) define('BOM', "\xEF\xBB\xBF");
 if(!defined('SORT_NATURAL')) define('SORT_NATURAL', 'SORT_NATURAL');
 
 // a super simple autoloader
-function load($classmap) {
-  spl_autoload_register(function($class) use ($classmap) {
+function load($classmap, $base = null) {
+  spl_autoload_register(function($class) use ($classmap, $base) {
     $class = strtolower($class);
     if(!isset($classmap[$class])) return false;
-    include($classmap[$class]);
+    if($base) {
+      include($base . DS . $classmap[$class]);      
+    } else {
+      include($classmap[$class]);
+    }
   });
 }
 
@@ -85,6 +89,7 @@ load(array(
   // vendors
   'spyc'                        => __DIR__ . DS . 'vendors' . DS . 'yaml' . DS . 'yaml.php',
   'abeautifulsite\\simpleimage' => __DIR__ . DS . 'vendors' . DS . 'abeautifulsite' . DS . 'SimpleImage.php',
+  'mimereader'                  => __DIR__ . DS . 'vendors' . DS . 'mimereader' . DS . 'mimereader.php',
 
 ));
 

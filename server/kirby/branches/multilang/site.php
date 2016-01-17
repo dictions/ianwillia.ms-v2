@@ -25,7 +25,7 @@ class Site extends SiteAbstract {
       $language = new Language($this, $lang);
 
       // store the default language
-      if($language->default) $this->defaultLanguage = $language;
+      if($language->default) $this->defaultLanguage = $this->language = $language;
 
       // add the language to the collection
       $this->languages->data[$language->code] = $language;
@@ -55,7 +55,7 @@ class Site extends SiteAbstract {
       // return the specific language url
       return $this->languages->find($lang)->url();
     } else {
-      return $this->kirby->urls()->index();
+      return parent::url();
     }
   }
 
@@ -79,11 +79,14 @@ class Site extends SiteAbstract {
 
   /**
    * Returns the current language
+   * or any other language by language code
    *
+   * @param string $code
    * @return Language
    */
-  public function language() {
-    return $this->language;
+  public function language($code = null) {
+    if(is_null($code)) return $this->language;
+    return $this->languages()->find($code);
   }
 
   /**

@@ -4,12 +4,35 @@ class Buttons {
 
   static public $setup = array();
 
+  public $texarea = null;
+  public $buttons = array();
+
+  public function __construct($textarea, $buttons = array()) {
+
+    $this->textarea = $textarea;
+
+    if(!is_array($buttons)) {
+      $this->buttons = array_keys(static::$setup);
+    } else {
+      $this->buttons = $buttons;
+    }
+
+  }
+
   public function __toString() {
 
     $html  = '<nav class="field-buttons">';
     $html .= '<ul class="nav nav-bar">';
 
     foreach(static::$setup as $key => $button) {
+
+      if(!in_array($key, $this->buttons)) continue;
+
+      if(!empty($button['action'])) {
+        $action = $this->textarea->model()->url('field/' . $this->textarea->name() . '/textarea/' . $button['action']);
+      } else {
+        $action = null;
+      }
 
       $icon  = '<i class="icon fa fa-' . $button['icon'] . '"></i>';
       $html .= '<li class="field-button-' . $key . '">';
@@ -21,7 +44,7 @@ class Buttons {
         'data-editor-shortcut' => @$button['shortcut'],
         'data-tpl'             => @$button['template'],
         'data-text'            => @$button['text'],
-        'data-action'          => @$button['action']
+        'data-action'          => $action
       ));
 
       $html .= '</li>';
@@ -64,18 +87,4 @@ buttons::$setup = array(
     'action'   => 'email',
     'icon'     => 'envelope'
   ),
-  /*
-  'image' => array(
-    'label'    => l::get('fields.textarea.buttons.image.label'),
-    'shortcut' => 'meta+shift+i',
-    'action'   => 'image',
-    'icon'     => 'image'
-  ),
-  'file' => array(
-    'label'    => l::get('fields.textarea.buttons.file.label'),
-    'shortcut' => 'meta+shift+f',
-    'action'   => 'file',
-    'icon'     => 'file'
-  ),
-  */
 );

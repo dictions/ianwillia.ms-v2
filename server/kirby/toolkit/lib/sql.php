@@ -225,7 +225,7 @@ class Sql {
    * @return string
    */
   public function dropTable($table) {
-    return 'DROP TABLE "' . $table . '"';
+    return 'DROP TABLE `' . $table . '`';
   }
 
   /**
@@ -234,7 +234,6 @@ class Sql {
    * @todo  add more options per column
    * @param string $table The table name
    * @param array $columns
-   * @param string $type mysql or sqlite
    * @return string
    */
   public function createTable($table, $columns = array()) {
@@ -283,13 +282,13 @@ class Sql {
 
       $defaultValue = null;
       if(isset($column['default'])) {
-        $defaultValue = is_integer($column['default']) ? $column['default'] : '"' . $column['default'] . '"';
+        $defaultValue = is_integer($column['default']) ? $column['default'] : "'" . $column['default'] . "'";
       }
 
       $output[] = trim(str::template($template[$type], array(
         'column.name'    => $name,
         'column.null'    => r(a::get($column, 'null') === false, 'NOT NULL', 'NULL'),
-        'column.key'     => r($key and $key != 'INDEX', $key, false),
+        'column.key'     => r($key && $key != 'INDEX', $key, false),
         'column.default' => r(!is_null($defaultValue), 'DEFAULT ' . $defaultValue),
       )));
 

@@ -29,11 +29,8 @@ class Media {
   // the content of the file
   protected $content = null;
 
-  // cache for the exif object
-  protected $exif = null;
-
-  // cache for the dimensions object
-  protected $dimensions = null;
+  // cache for various data
+  protected $cache = array();
 
   /**
    * Constructor
@@ -46,6 +43,13 @@ class Media {
     $this->filename  = basename($root);
     $this->name      = pathinfo($root, PATHINFO_FILENAME);
     $this->extension = strtolower(pathinfo($root, PATHINFO_EXTENSION));
+  }
+
+  /**
+   * Resets the internal cache
+   */
+  public function reset() {
+    $this->cache = array();
   }
 
   /**
@@ -274,14 +278,13 @@ class Media {
    *
    * @return int
    */
-  public function modified($format = null) {
-    return f::modified($this->root, $format);
+  public function modified($format = null, $handler = 'date') {
+    return f::modified($this->root, $format, $handler);
   }
 
   /**
    * Returns the mime type of a file
    *
-   * @param string $file
    * @return string
    */
   public function mime() {
@@ -376,14 +379,12 @@ class Media {
    *
    * @param array $data Optional variables, which will be made available to the file
    */
-  static public function load($data = array()) {
+  public function load($data = array()) {
     return f::load($this->root, $data);
   }
 
   /**
    * Read and send the file with the correct headers
-   *
-   * @param string $file
    */
   public function show() {
     f::show($this->root);
@@ -405,8 +406,8 @@ class Media {
    * @return Exif
    */
   public function exif() {
-    if(!is_null($this->exif)) return $this->exif;
-    return $this->exif = new Exif($this);
+    if(isset($this->cache['exif'])) return $this->cache['exif'];
+    return $this->cache['exif'] = new Exif($this);
   }
 
   /**
@@ -427,10 +428,21 @@ class Media {
 
     if(isset($this->cache['dimensions'])) return $this->cache['dimensions'];
 
-    if($this->type() == 'image') {
+    if(in_array($this->mime(), array('image/jpeg', 'image/png', 'image/gif'))) {
       $size   = (array)getimagesize($this->root);
       $width  = a::get($size, 0, 0);
       $height = a::get($size, 1, 0);
+    } else if($this->extension() == 'svg') {
+      $content = $this->read();
+      $xml     = simplexml_load_string($content);
+      $attr    = $xml->attributes();  
+      $width   = floatval($attr->width); 
+      $height  = floatval($attr->height);
+      if($width == 0 or $height == 0 and !empty($attr->viewBox)) {
+        $box    = str::split($attr->viewBox, ' ');
+        $width  = floatval(a::get($box, 2, 0));
+        $height = floatval(a::get($box, 3, 0));
+      }
     } else {
       $width  = 0;
       $height = 0;
@@ -502,6 +514,115 @@ class Media {
    */
   public function orientation() {
     return $this->dimensions()->orientation();
+  }
+
+  /**
+   * @param array $attr
+   * @return string
+   */
+  public function html($attr = array()) {
+
+    if($this->type() != 'image') return false;
+
+    $img = new Brick('img');
+    $img->attr('src', $this->url());
+
+    if(is_string($attr) || (is_object($attr) && method_exists($attr, '__toString'))) {
+      $img->attr('alt', (string)$attr);
+    } else if(is_array($attr)) {
+      $img->attr($attr);      
+    }
+
+    return $img;
+
+  }
+
+  /**
+   * Scales the image if possible
+   * 
+   * @param int $width
+   * @param mixed $height
+   * @param mixed $quality
+   * @return Media
+   */
+  public function resize($width, $height = null, $quality = null) {
+
+    if($this->type() != 'image') return $this;
+
+    $params = array('width' => $width);
+
+    if($height)  $params['height']  = $height;
+    if($quality) $params['quality'] = $quality;
+
+    return new Thumb($this, $params);
+
+  }
+
+  /**
+   * Scales and crops the image if possible
+   * 
+   * @param int $width
+   * @param mixed $height
+   * @param mixed $quality
+   * @return Media
+   */
+  public function crop($width, $height = null, $quality = null) {
+
+    if($this->type() != 'image') return $this;
+
+    $params = array('width' => $width, 'crop' => true);
+
+    if($height)  $params['height']  = $height;
+    if($quality) $params['quality'] = $quality;
+
+    return new Thumb($this, $params);
+
+  }
+
+  /**
+   * Converts the media object to a 
+   * plain PHP array
+   * 
+   * @param closure $callback 
+   * @return array
+   */
+  public function toArray($callback = null) {
+
+    $data = array(
+      'root'       => $this->root(),
+      'url'        => $this->url(),
+      'hash'       => $this->hash(),
+      'dir'        => $this->dir(),
+      'filename'   => $this->filename(),
+      'name'       => $this->name(),
+      'safeName'   => $this->safeName(),
+      'extension'  => $this->extension(),
+      'size'       => $this->size(),
+      'niceSize'   => $this->niceSize(),
+      'modified'   => $this->modified(),
+      'mime'       => $this->mime(),
+      'type'       => $this->type(),
+      'dimensions' => $this->dimensions()->toArray()
+    );
+
+
+    if(is_null($callback)) {
+      return $data;
+    } else {
+      return array_map($callback, $data);
+    }
+
+  }
+
+  /**
+   * Converts the entire file array into 
+   * a json string
+   * 
+   * @param closure $callback Filter callback
+   * @return string
+   */
+  public function toJson($callback = null) {
+    return json_encode($this->toArray($callback));
   }
 
   /**
