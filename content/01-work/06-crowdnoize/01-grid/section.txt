@@ -9,12 +9,12 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:big.svg
-	col2:medium.svg
-	col3:small.svg
+	col1: big.svg
+	col2: medium.svg
+	col3: small.svg
 Row_2:
-	col1:cn-pres-4.png
-	col2:cn-pres-1.png
+	col1: cn-pres-4.png
+	col2: cn-pres-1.png
 Row_3:
-	col1:cn-pres-2.png
-	col2:cn-pres-3.jpg
+	col1: cn-pres-2.png
+	col2: cn-pres-3.jpg

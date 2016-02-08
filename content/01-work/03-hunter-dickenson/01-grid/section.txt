@@ -9,16 +9,16 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:tent1.svg
-	col2:tent2.svg
-	col3:crown.svg
+	col1: tent1.svg
+	col2: tent2.svg
+	col3: crown.svg
 Row_2:
-	col1:process1.jpg
-	col2:process2.jpg
+	col1: process1.jpg
+	col2: process2.jpg
 Row_3:
-	col1:product.jpg
+	col1: product.jpg
 Row_4:
-	col1:circle.svg
-	col2:pill.svg
+	col1: circle.svg
+	col2: pill.svg
 Row_5:
-	col1:portfolio.jpg
+	col1: portfolio.jpg

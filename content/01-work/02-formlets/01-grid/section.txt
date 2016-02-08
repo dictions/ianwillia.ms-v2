@@ -9,11 +9,11 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:formlets-logo.png
-	col2:formlets-inline-logo.png
+	col1: formlets-logo.png
+	col2: formlets-inline-logo.png
 Row_2:
-	col1:formlets-marketing.png
+	col1: formlets-marketing.png
 Row_3:
-	col1:formlets-builder.png
+	col1: formlets-builder.png
 Row_4:
-	col1:formlets-list.png
+	col1: formlets-list.png

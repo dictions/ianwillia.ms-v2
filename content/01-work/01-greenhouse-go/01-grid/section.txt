@@ -9,14 +9,14 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:ghg-plan.png
+	col1: ghg-plan.png
 Row_2:
-	col1:ghg-analyze.png
+	col1: ghg-analyze.png
 Row_3:
-	col1:ghg-mitigate.png
+	col1: ghg-mitigate.png
 Row_4:
-	col1:ghg-deliver.png
+	col1: ghg-deliver.png
 Row_5:
-	col1:ghg-analytics.png
+	col1: ghg-analytics.png
 Row_6:
-	col1:ghg-users.png
+	col1: ghg-users.png

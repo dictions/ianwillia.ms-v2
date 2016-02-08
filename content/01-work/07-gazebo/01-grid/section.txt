@@ -9,4 +9,4 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:desktop.png
+	col1: desktop.png

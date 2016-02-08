@@ -9,6 +9,6 @@ Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod t
 Grid:
 
 Row_1:
-	col1:dimos-intro.png
-	col2:dimos-choose.png
-	col3:dimos-pickup.png
+	col1: dimos-intro.png
+	col2: dimos-choose.png
+	col3: dimos-pickup.png
