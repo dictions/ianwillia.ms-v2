@@ -4,7 +4,7 @@
 <?php elseif (c::get('environment') == 'production'): ?>
 <html manifest="/manifest.cache">
 <?php endif ?>
-	
+
 <head>
 	<?php if($page->isHomepage()): ?>
 	<title><?php echo html($site->title()) ?></title>
@@ -29,7 +29,7 @@
 	<meta name="twitter:description" content="American designer/developer based in Appalachia. Currently focusing on building brands and interfaces." />
 
 	<link rel="stylesheet" type="text/css" href="/assets/styles/_dist/index.css">
-	<link rel="stylesheet" href="//f.fontdeck.com/s/css/zH28mslJNSfrEtk/N8vkA5GMvEQ/DOMAIN_NAME/59091.css" type="text/css" />
+	<link rel="stylesheet" href="//f.fontdeck.com/s/css/zH28mslJNSfrEtk/N8vkA5GMvEQ/ianwillia.ms/59091.css" type="text/css" />
 	<style type="text/css">
 	@font-face {
 		font-family: 'GTS';
@@ -44,9 +44,9 @@
 		font-style: normal;
 	}
 	</style>
-	
+
 	<style>body.js-load {opacity: 0;}</style>
-	
+
 	<?php if (c::get('environment') == 'development'): ?>
 	<script src="http://localhost:35729/livereload.js"></script>
 	<?php endif ?>
