@@ -1,0 +1,12 @@
+{
+  "name": "ianwillia.ms-v2",
+  "description": "Portfolio",
+  "type": "project",
+  "require": {
+    "php": "^5.5",
+    "ext-curl": "*",
+    "ext-mbstring": "*"
+  },
+  "license": "MIT",
+  "minimum-stability": "stable"
+}

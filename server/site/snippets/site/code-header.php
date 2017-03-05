@@ -29,7 +29,7 @@
 	<meta name="twitter:description" content="American designer/developer based in Appalachia. Currently focusing on building brands and interfaces." />
 
 	<link rel="stylesheet" type="text/css" href="/assets/styles/_dist/index.css">
-	<link rel="stylesheet" href="//f.fontdeck.com/s/css/zH28mslJNSfrEtk/N8vkA5GMvEQ/ianwillia.ms/59091.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
 	<style type="text/css">
 	@font-face {
 		font-family: 'GTS';
